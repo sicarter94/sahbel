@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAHBEL - Naturellement Beaux Cheveux</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Variables et reset */
+        :root {
+            --couleur-fond: #ffffff;
+            --couleur-texte: #000000;
+            --couleur-accent: #ff9eb5; /* rose flamingo doux */
+            --couleur-secondaire: #f5f0e7; /* beige élégant */
+            --typo-titre: 'Playfair Display', serif;
+            --typo-texte: 'Montserrat', sans-serif;
+            --ombre-legere: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --ombre-moyenne: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--typo-texte);
+            color: var(--couleur-texte);
+            background-color: var(--couleur-fond);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Animation d'entrée */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { 
+                box-shadow: 0 0 0 0 rgba(255, 158, 181, 0.7);
+                transform: scale(1);
+            }
+            70% { 
+                box-shadow: 0 0 0 15px rgba(255, 158, 181, 0);
+                transform: scale(1.05);
+            }
+            100% { 
+                box-shadow: 0 0 0 0 rgba(255, 158, 181, 0);
+                transform: scale(1);
+            }
+        }
+        
+        /* En-tête */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            z-index: 1000;
+            box-shadow: var(--ombre-legere);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .logo {
+            font-family: var(--typo-titre);
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--couleur-texte);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .logo span {
+            color: var(--couleur-accent);
+        }
+        
+        .logo::before {
+            content: "🌸";
+            margin-right: 10px;
+            font-size: 1.8rem;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--couleur-texte);
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--couleur-accent);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--couleur-accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Bannière principale */
+        .banniere {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f5f0e7 0%, #ffffff 100%);
+        }
+        
+        .banniere::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,158,181,0.1) 0%, rgba(255,255,255,0) 70%);
+            z-index: 0;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .banniere-content {
+            max-width: 800px;
+            z-index: 2;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--ombre-moyenne);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .banniere h1 {
+            font-family: var(--typo-titre);
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.2;
+            color: #333;
+            background: linear-gradient(45deg, #000, #ff9eb5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .banniere p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #555;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--couleur-accent);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: all 0.4s ease;
+            border: 2px solid var(--couleur-accent);
+            margin-top: 20px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            animation: fadeInUp 1.4s ease-out;
+            box-shadow: var(--ombre-legere);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: white;
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            color: var(--couleur-accent);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn:hover::before {
+            width: 100%;
+        }
+        
+        /* Section valeurs */
+        .valeurs {
+            padding: 100px 5%;
+            background-color: var(--couleur-secondaire);
+            text-align: center;
+        }
+        
+        .section-titre {
+            font-family: var(--typo-titre);
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--couleur-texte);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-titre::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--couleur-accent);
+        }
+        
+        .valeurs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .valeur-card {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: var(--ombre-legere);
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .valeur-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--ombre-moyenne);
+        }
+        
+        .valeur-card:nth-child(1) { animation-delay: 0.2s; }
+        .valeur-card:nth-child(2) { animation-delay: 0.4s; }
+        .valeur-card:nth-child(3) { animation-delay: 0.6s; }
+        
+        .valeur-icon {
+            font-size: 3rem;
+            color: var(--couleur-accent);
+            margin-bottom: 20px;
+        }
+        
+        .valeur-card h3 {
+            font-family: var(--typo-titre);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        /* Section produits */
+        .produits {
+            padding: 100px 5%;
+            text-align: center;
+            background: linear-gradient(to bottom, var(--couleur-secondaire) 0%, white 100%);
+        }
+        
+        .produits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 50px auto 0;
+        }
+        
+        .produit-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--ombre-legere);
+            transition: all 0.4s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .produit-card:nth-child(1) { animation-delay: 0.2s; }
+        .produit-card:nth-child(2) { animation-delay: 0.4s; }
+        .produit-card:nth-child(3) { animation-delay: 0.6s; }
+        
+        .produit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--ombre-moyenne);
+        }
+        
+        .produit-image {
+            height: 250px;
+            background-color: var(--couleur-secondaire);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .produit-image::before {
+            content: "";
+            position: absolute;
+            width: 150%;
+            height: 50px;
+            background-color: var(--couleur-accent);
+            transform: rotate(-5deg);
+            top: 20px;
+            opacity: 0.2;
+        }
+        
+        .produit-image::after {
+            content: "";
+            position: absolute;
+            width: 150%;
+            height: 50px;
+            background-color: var(--couleur-accent);
+            transform: rotate(5deg);
+            bottom: 20px;
+            opacity: 0.2;
+        }
+        
+        .produit-image i {
+            font-size: 5rem;
+            color: rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+        
+        .produit-info {
+            padding: 25px;
+        }
+        
+        .produit-info h3 {
+            font-family: var(--typo-titre);
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .produit-info p {
+            color: #666;
+            margin-bottom: 15px;
+            min-height: 80px;
+        }
+        
+        .produit-prix {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--couleur-accent);
+            margin: 15px 0;
+        }
+        
+        /* Bouton WhatsApp flottant */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            animation: none;
+        }
+        
+        /* Pied de page */
+        footer {
+            background-color: #f9f9f9;
+            padding: 60px 5% 30px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            text-align: left;
+        }
+        
+        .footer-col h3 {
+            font-family: var(--typo-titre);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-col h3::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--couleur-accent);
+        }
+        
+        .footer-col p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: white;
+            color: var(--couleur-texte);
+            margin-right: 15px;
+            transition: all 0.3s ease;
+            box-shadow: var(--ombre-legere);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--couleur-accent);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 30px 0 0 30px;
+            outline: none;
+        }
+        
+        .newsletter-form button {
+            background-color: var(--couleur-accent);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #ff85a3;
+        }
+        
+        .copyright {
+            margin-top: 50px;
+            font-size: 0.9rem;
+            color: rgba(0, 0, 0, 0.6);
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Responsive */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--couleur-texte);
+            cursor: pointer;
+        }
+        
+        @media (max-width: 992px) {
+            .banniere h1 {
+                font-size: 3rem;
+            }
+            
+            .section-titre {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 5%;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--couleur-fond);
+                flex-direction: column;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 15px 5%;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+            
+            .banniere {
+                height: auto;
+                padding: 100px 5% 80px;
+            }
+            
+            .banniere h1 {
+                font-size: 2.3rem;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .valeurs, .produits {
+                padding: 70px 5%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .banniere h1 {
+                font-size: 1.8rem;
+            }
+            
+            .banniere p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+            
+            .whatsapp-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.5rem;
+            }
+            
+            .section-titre {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <a href="#" class="logo">SAH<span>BEL</span></a>
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <ul id="navMenu">
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a href="#">Avis</a></li>
+                <li><a href="#">Produits</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Bannière principale -->
+    <section class="banniere">
+        <div class="banniere-content">
+            <h1>Découvrez le pouvoir de la nature pour vos cheveux.</h1>
+            <p>Des produits 100% naturels formulés pour stimuler la repousse capillaire et révéler la beauté naturelle de vos cheveux.</p>
+            <a href="#" class="btn">Découvrir nos produits</a>
+        </div>
+    </section>
+    
+    <!-- Section valeurs -->
+    <section class="valeurs">
+        <h2 class="section-titre">Nos valeurs</h2>
+        <div class="valeurs-grid">
+            <div class="valeur-card">
+                <div class="valeur-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>Naturel</h3>
+                <p>Des ingrédients 100% naturels, sans produits chimiques agressifs pour vos cheveux et votre santé.</p>
+            </div>
+            <div class="valeur-card">
+                <div class="valeur-icon">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <h3>Qualité</h3>
+                <p>Des produits de haute qualité, formulés avec soin pour des résultats visibles et durables.</p>
+            </div>
+            <div class="valeur-card">
+                <div class="valeur-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Éthique</h3>
+                <p>Respect de l'environnement et des animaux. Tous nos produits sont vegan et cruelty-free.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section produits -->
+    <section class="produits">
+        <h2 class="section-titre">Nos produits phares</h2>
+        <div class="produits-grid">
+            <div class="produit-card">
+                <div class="produit-image">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <div class="produit-info">
+                    <h3>Huile de Repousse</h3>
+                    <p>Un mélange exclusif d'huiles naturelles qui stimule la croissance capillaire et renforce les racines.</p>
+                    <div class="produit-prix">49,99€</div>
+                    <a href="#" class="btn">Commander</a>
+                </div>
+            </div>
+            <div class="produit-card">
+                <div class="produit-image">
+                    <i class="fas fa-pump-soap"></i>
+                </div>
+                <div class="produit-info">
+                    <h3>Shampoing Fortifiant</h3>
+                    <p>Nettoyant doux enrichi en vitamines pour des cheveux forts, brillants et pleins de vie.</p>
+                    <div class="produit-prix">29,99€</div>
+                    <a href="#" class="btn">Commander</a>
+                </div>
+            </div>
+            <div class="produit-card">
+                <div class="produit-image">
+                    <i class="fas fa-vial"></i>
+                </div>
+                <div class="produit-info">
+                    <h3>Sérum Intensif</h3>
+                    <p>Un soin concentré pour une action ciblée sur les zones clairsemées ou fragilisées.</p>
+                    <div class="produit-prix">59,99€</div>
+                    <a href="#" class="btn">Commander</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bouton WhatsApp -->
+    <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank" aria-label="Contactez-nous sur WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Pied de page -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h3>SAHBEL</h3>
+                <p>Des produits naturels de haute qualité pour la repousse et la beauté de vos cheveux. Formulés avec amour et respect de la nature.</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Liens rapides</h3>
+                <p><a href="#">Accueil</a></p>
+                <p><a href="#">À propos</a></p>
+                <p><a href="#">Nos produits</a></p>
+                <p><a href="#">Témoignages</a></p>
+                <p><a href="#">Contact</a></p>
+            </div>
+            <div class="footer-col">
+                <h3>Newsletter</h3>
+                <p>Inscrivez-vous pour recevoir nos conseils et offres exclusives.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Votre email">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <p class="copyright">© 2023 SAHBEL. Tous droits réservés.</p>
+    </footer>
+    
+    <script>
+        // Menu mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Fermer le menu en cliquant en dehors
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+        
+        // Animation au défilement
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.2
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.valeur-card, .produit-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

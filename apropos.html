@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produits SAHBEL - Naturellement Beaux Cheveux</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --couleur-fond: #ffffff;
+            --couleur-texte: #000000;
+            --couleur-accent: #ff9eb5; /* rose flamingo */
+            --couleur-secondaire: #f9f5f0; /* beige élégant */
+            --typo-titre: 'Playfair Display', serif;
+            --typo-texte: 'Poppins', sans-serif;
+            --ombre-legere: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --ombre-moyenne: 0 8px 25px rgba(0, 0, 0, 0.12);
+            --transition: all 0.4s ease;
+            --border-radius: 12px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--typo-texte);
+            color: var(--couleur-texte);
+            background-color: var(--couleur-fond);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* En-tête */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            z-index: 1000;
+            box-shadow: var(--ombre-legere);
+        }
+        
+        .logo {
+            font-family: var(--typo-titre);
+            font-size: 2.2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--couleur-texte);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--couleur-accent);
+        }
+        
+        .logo::before {
+            content: "🌸";
+            margin-right: 8px;
+            font-size: 1.8rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--couleur-texte);
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--couleur-accent);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--couleur-accent);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Bannière produits */
+        .banniere-produits {
+            background: linear-gradient(135deg, #f9f5f0 0%, #ffffff 100%);
+            padding: 100px 5% 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .banniere-produits::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(255,158,181,0.1) 0%, rgba(255,255,255,0) 70%);
+            z-index: 0;
+        }
+        
+        .banniere-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .banniere-produits h1 {
+            font-family: var(--typo-titre);
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #000, #ff9eb5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .banniere-produits p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #555;
+            animation: fadeInUp 1.2s ease-out;
+        }
+        
+        /* Section produits */
+        .section-produits {
+            padding: 80px 0 60px;
+        }
+        
+        .section-titre {
+            font-family: var(--typo-titre);
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-titre::after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--couleur-accent);
+        }
+        
+        /* Grille des produits */
+        .produits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .produit-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--ombre-legere);
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .produit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--ombre-moyenne);
+        }
+        
+        .produit-image {
+            height: 280px;
+            background-color: var(--couleur-secondaire);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .produit-image img {
+            max-width: 80%;
+            max-height: 80%;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+        
+        .produit-card:hover .produit-image img {
+            transform: scale(1.05);
+        }
+        
+        .produit-image::before {
+            content: "";
+            position: absolute;
+            width: 150%;
+            height: 50px;
+            background-color: var(--couleur-accent);
+            transform: rotate(-5deg);
+            top: 20px;
+            opacity: 0.1;
+        }
+        
+        .produit-image::after {
+            content: "";
+            position: absolute;
+            width: 150%;
+            height: 50px;
+            background-color: var(--couleur-accent);
+            transform: rotate(5deg);
+            bottom: 20px;
+            opacity: 0.1;
+        }
+        
+        .produit-info {
+            padding: 30px;
+        }
+        
+        .produit-nom {
+            font-family: var(--typo-titre);
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .produit-desc {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .produit-variantes {
+            background-color: rgba(255, 158, 181, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        .variante {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed rgba(0,0,0,0.1);
+        }
+        
+        .variante:last-child {
+            border-bottom: none;
+        }
+        
+        .prix {
+            font-weight: 600;
+            color: var(--couleur-accent);
+        }
+        
+        /* Section avis */
+        .section-avis {
+            background-color: var(--couleur-secondaire);
+            padding: 80px 0;
+        }
+        
+        .avis-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .avis-card {
+            background-color: white;
+            padding: 35px 30px 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--ombre-legere);
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .avis-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--ombre-moyenne);
+        }
+        
+        .avis-card::before {
+            content: """;
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            font-size: 5rem;
+            color: rgba(255, 158, 181, 0.2);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .avis-texte {
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        
+        .avis-auteur {
+            font-weight: 600;
+            color: #333;
+            display: flex;
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        
+        .avis-auteur::before {
+            content: "";
+            display: inline-block;
+            width: 30px;
+            height: 2px;
+            background-color: var(--couleur-accent);
+            margin-right: 12px;
+        }
+        
+        /* Section commande */
+        .section-commande {
+            padding: 80px 0;
+            background: linear-gradient(to bottom, var(--couleur-secondaire) 0%, white 100%);
+        }
+        
+        .commande-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--ombre-legere);
+        }
+        
+        .commande-form {
+            display: grid;
+            gap: 25px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group label {
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: #333;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .form-group label img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            border-radius: 4px;
+            object-fit: cover;
+            border: 1px solid #eee;
+        }
+        
+        .form-group select, 
+        .form-group input {
+            padding: 14px 18px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: var(--typo-texte);
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: white;
+        }
+        
+        .form-group select:focus, 
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--couleur-accent);
+            box-shadow: 0 0 0 3px rgba(255, 158, 181, 0.2);
+        }
+        
+        .produit-select {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .quantite-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .quantite-input {
+            width: 90px;
+            text-align: center;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: var(--typo-texte);
+            font-size: 1rem;
+        }
+        
+        .mini-image {
+            width: 35px;
+            height: 35px;
+            border-radius: 4px;
+            object-fit: cover;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--couleur-accent);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            text-align: center;
+            box-shadow: var(--ombre-legere);
+            margin-top: 10px;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 100%;
+            background-color: white;
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .btn:hover {
+            color: var(--couleur-accent);
+            transform: translateY(-5px);
+            box-shadow: var(--ombre-moyenne);
+        }
+        
+        .btn:hover::before {
+            width: 100%;
+        }
+        
+        .btn i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Bouton WhatsApp flottant */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            animation: none;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Pied de page */
+        footer {
+            background-color: #f9f9f9;
+            padding: 40px 5% 20px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: white;
+            color: var(--couleur-texte);
+            margin: 0 12px;
+            transition: var(--transition);
+            box-shadow: var(--ombre-legere);
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--couleur-accent);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            color: rgba(0, 0, 0, 0.6);
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Responsive */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--couleur-texte);
+            cursor: pointer;
+        }
+        
+        @media (max-width: 992px) {
+            .section-titre {
+                font-size: 2.2rem;
+            }
+            
+            .banniere-produits h1 {
+                font-size: 3rem;
+            }
+            
+            .produits-grid {
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 5%;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: var(--couleur-fond);
+                flex-direction: column;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+                padding: 20px 0;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                padding: 15px 5%;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            }
+            
+            .banniere-produits {
+                padding: 80px 5% 60px;
+            }
+            
+            .banniere-produits h1 {
+                font-size: 2.3rem;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            .section-produits, .section-avis, .section-commande {
+                padding: 60px 0;
+            }
+            
+            .produits-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .banniere-produits h1 {
+                font-size: 1.9rem;
+            }
+            
+            .banniere-produits p {
+                font-size: 1rem;
+            }
+            
+            .section-titre {
+                font-size: 1.9rem;
+            }
+            
+            .btn {
+                padding: 16px 35px;
+                font-size: 1rem;
+                width: 100%;
+            }
+            
+            .whatsapp-btn {
+                width: 55px;
+                height: 55px;
+                font-size: 1.7rem;
+            }
+            
+            .commande-container {
+                padding: 25px;
+            }
+            
+            .produit-select {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .quantite-container {
+                width: 100%;
+            }
+            
+            .quantite-input {
+                width: 100%;
+            }
+            
+            .form-group label img {
+                width: 25px;
+                height: 25px;
+            }
+            
+            .mini-image {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <a href="#" class="logo">SAH<span>BEL</span></a>
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <ul id="navMenu">
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#" class="active">Produits</a></li>
+                <li><a href="#">À propos</a></li>
+                <li><a href="#">Avis</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- Bannière produits -->
+    <section class="banniere-produits">
+        <div class="container banniere-content">
+            <h1>Nos Produits Naturels</h1>
+            <p>Découvrez notre gamme exclusive de soins capillaires 100% naturels spécialement formulés pour stimuler la repousse et sublimer vos cheveux.</p>
+        </div>
+    </section>
+    
+    <!-- Section produits -->
+    <section class="section-produits">
+        <div class="container">
+            <h2 class="section-titre">Nos Soins Capillaires</h2>
+            
+            <div class="produits-grid">
+                <!-- Huile de croissance -->
+                <div class="produit-card">
+                    <div class="produit-image">
+                        <img src="images/huile.jpg" alt="Huile de croissance SAHBEL">
+                    </div>
+                    <div class="produit-info">
+                        <h3 class="produit-nom">Huile de croissance</h3>
+                        <p class="produit-desc">L’huile de croissance SAHBEL est un concentré d’huiles végétales enrichi à la menthe poivrée et à la vitamine E. Grâce à sa fermentation naturelle, elle stimule intensément la pousse des cheveux, ralentit l’apparition des cheveux blancs et lutte efficacement contre l’alopécie.</p>
+                        <div class="produit-variantes">
+                            <div class="variante">
+                                <span>4oz</span>
+                                <span class="prix">400 HTG</span>
+                            </div>
+                            <div class="variante">
+                                <span>2oz</span>
+                                <span class="prix">250 HTG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lotion capillaire -->
+                <div class="produit-card">
+                    <div class="produit-image">
+                        <img src="images/lotion.jpg" alt="Lotion capillaire SAHBEL">
+                    </div>
+                    <div class="produit-info">
+                        <h3 class="produit-nom">Lotion capillaire</h3>
+                        <p class="produit-desc">La lotion capillaire SAHBEL apporte hydratation, volume et brillance. Formulée pour ralentir la chute, renforcer les racines et stimuler la croissance, elle convient aux cheveux cassants ou en transition.</p>
+                        <div class="produit-variantes">
+                            <div class="variante">
+                                <span>8oz</span>
+                                <span class="prix">600 HTG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Crème coiffante -->
+                <div class="produit-card">
+                    <div class="produit-image">
+                        <img src="images/creme.jpg" alt="Crème coiffante SAHBEL">
+                    </div>
+                    <div class="produit-info">
+                        <h3 class="produit-nom">Crème coiffante</h3>
+                        <p class="produit-desc">La crème coiffante SAHBEL démêle, hydrate et protège les cheveux contre les sources de chaleur. Elle facilite le coiffage, réduit la casse, et laisse les cheveux souples, brillants et faciles à coiffer.</p>
+                        <div class="produit-variantes">
+                            <div class="variante">
+                                <span>8oz</span>
+                                <span class="prix">600 HTG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Shampoo & Conditionneur -->
+                <div class="produit-card">
+                    <div class="produit-image">
+                        <img src="images/shampoo.jpg" alt="Shampoo & Conditionneur SAHBEL">
+                    </div>
+                    <div class="produit-info">
+                        <h3 class="produit-nom">Shampoo & Conditionneur</h3>
+                        <p class="produit-desc">Le shampoing SAHBEL à la menthe et kératine naturelle nettoie en douceur tout en équilibrant le pH du cuir chevelu. Associé au conditionneur nourrissant, il démêle en profondeur et répare les fibres capillaires abîmées.</p>
+                        <div class="produit-variantes">
+                            <div class="variante">
+                                <span>Lot (16oz)</span>
+                                <span class="prix">500 HTG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Huile de Gombo -->
+                <div class="produit-card">
+                    <div class="produit-image">
+                        <img src="images/gombo.jpg" alt="Huile de Gombo SAHBEL">
+                    </div>
+                    <div class="produit-info">
+                        <h3 class="produit-nom">Huile de Gombo</h3>
+                        <p class="produit-desc">Riche et nourrissante, l’huile de gombo SAHBEL définit les boucles, démêle les longueurs, et hydrate profondément. Elle stimule la repousse tout en apportant brillance, douceur et souplesse naturelle.</p>
+                        <div class="produit-variantes">
+                            <div class="variante">
+                                <span>1 unité</span>
+                                <span class="prix">300 HTG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pommade capillaire -->
+                <div class="produit-card">
+                    <div class="produit-image">
+                        <img src="images/pommade.jpg" alt="Pommade capillaire SAHBEL">
+                    </div>
+                    <div class="produit-info">
+                        <h3 class="produit-nom">Pommade capillaire</h3>
+                        <p class="produit-desc">La pommade SAHBEL est conçue pour renforcer la fibre capillaire, prévenir la casse et stimuler la croissance. Grâce à sa texture onctueuse, elle nourrit en profondeur et protège les cheveux secs ou abîmés.</p>
+                        <div class="produit-variantes">
+                            <div class="variante">
+                                <span>1 unité</span>
+                                <span class="prix">300 HTG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section avis clients -->
+    <section class="section-avis">
+        <div class="container">
+            <h2 class="section-titre">Ce que disent nos clientes</h2>
+            <div class="avis-container">
+                <div class="avis-card">
+                    <p class="avis-texte">"J’ai vu une différence en deux semaines, merci Sahbel ! Mes cheveux repoussent plus vite et sont plus forts."</p>
+                    <div class="avis-auteur">Marie</div>
+                </div>
+                <div class="avis-card">
+                    <p class="avis-texte">"Enfin une marque naturelle qui respecte mes cheveux crépus. Les résultats sont visibles et mes cheveux sont en meilleure santé."</p>
+                    <div class="avis-auteur">Nadia</div>
+                </div>
+                <div class="avis-card">
+                    <p class="avis-texte">"Je recommande surtout l’huile, c’est magique. Après un mois d'utilisation, mes zones clairsemées se remplissent."</p>
+                    <div class="avis-auteur">Esther</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section commande -->
+    <section class="section-commande">
+        <div class="container">
+            <div class="commande-container">
+                <h2 class="section-titre">Commander maintenant</h2>
+                <form class="commande-form" id="commandeForm">
+                    <div class="form-group">
+                        <label for="produit1">
+                            <img src="images/huile.jpg" alt="Huile de croissance">
+                            Huile de croissance
+                        </label>
+                        <div class="produit-select">
+                            <select id="produit1">
+                                <option value="">Sélectionnez une option</option>
+                                <option value="huile_4oz">Huile de croissance 4oz (400 HTG)</option>
+                                <option value="huile_2oz">Huile de croissance 2oz (250 HTG)</option>
+                            </select>
+                            <div class="quantite-container">
+                                <input type="number" min="0" value="0" class="quantite-input" id="qte1">
+                                <img src="images/huile.jpg" alt="Huile" class="mini-image">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="produit2">
+                            <img src="images/lotion.jpg" alt="Lotion capillaire">
+                            Lotion capillaire
+                        </label>
+                        <div class="produit-select">
+                            <select id="produit2">
+                                <option value="">Sélectionnez une option</option>
+                                <option value="lotion">Lotion capillaire (600 HTG)</option>
+                            </select>
+                            <div class="quantite-container">
+                                <input type="number" min="0" value="0" class="quantite-input" id="qte2">
+                                <img src="images/lotion.jpg" alt="Lotion" class="mini-image">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="produit3">
+                            <img src="images/creme.jpg" alt="Crème coiffante">
+                            Crème coiffante
+                        </label>
+                        <div class="produit-select">
+                            <select id="produit3">
+                                <option value="">Sélectionnez une option</option>
+                                <option value="creme">Crème coiffante (600 HTG)</option>
+                            </select>
+                            <div class="quantite-container">
+                                <input type="number" min="0" value="0" class="quantite-input" id="qte3">
+                                <img src="images/creme.jpg" alt="Crème" class="mini-image">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="produit4">
+                            <img src="images/shampoo.jpg" alt="Shampoo & Conditionneur">
+                            Shampoo & Conditionneur
+                        </label>
+                        <div class="produit-select">
+                            <select id="produit4">
+                                <option value="">Sélectionnez une option</option>
+                                <option value="shampoo">Shampoo & Conditionneur (500 HTG)</option>
+                            </select>
+                            <div class="quantite-container">
+                                <input type="number" min="0" value="0" class="quantite-input" id="qte4">
+                                <img src="images/shampoo.jpg" alt="Shampoo" class="mini-image">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="produit5">
+                            <img src="images/gombo.jpg" alt="Huile de Gombo">
+                            Huile de Gombo
+                        </label>
+                        <div class="produit-select">
+                            <select id="produit5">
+                                <option value="">Sélectionnez une option</option>
+                                <option value="gombo">Huile de Gombo (300 HTG)</option>
+                            </select>
+                            <div class="quantite-container">
+                                <input type="number" min="0" value="0" class="quantite-input" id="qte5">
+                                <img src="images/gombo.jpg" alt="Gombo" class="mini-image">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="produit6">
+                            <img src="images/pommade.jpg" alt="Pommade capillaire">
+                            Pommade capillaire
+                        </label>
+                        <div class="produit-select">
+                            <select id="produit6">
+                                <option value="">Sélectionnez une option</option>
+                                <option value="pommade">Pommade capillaire (300 HTG)</option>
+                            </select>
+                            <div class="quantite-container">
+                                <input type="number" min="0" value="0" class="quantite-input" id="qte6">
+                                <img src="images/pommade.jpg" alt="Pommade" class="mini-image">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="prenom">Votre prénom</label>
+                        <input type="text" id="prenom" placeholder="Ex: Sandra" required>
+                    </div>
+                    
+                    <button type="submit" class="btn">
+                        Commander sur WhatsApp <i class="fab fa-whatsapp"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bouton WhatsApp -->
+    <a href="https://wa.me/50947359294" class="whatsapp-btn" target="_blank" aria-label="Contactez-nous sur WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    
+    <!-- Pied de page -->
+    <footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            </div>
+            <p class="copyright">© 2023 SAHBEL. Tous droits réservés.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Menu mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Fermer le menu en cliquant en dehors
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('active')) {
+                navMenu.classList.remove('active');
+            }
+        });
+        
+        // Gestion du formulaire de commande
+        const commandeForm = document.getElementById('commandeForm');
+        
+        commandeForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const prenom = document.getElementById('prenom').value;
+            let message = `Bonjour SAHBEL, je souhaite commander :%0A%0A`;
+            let produitsSelectionnes = false;
+            
+            // Liste des produits
+            const produits = [
+                { id: 'produit1', qteId: 'qte1', nom: "Huile de croissance" },
+                { id: 'produit2', qteId: 'qte2', nom: "Lotion capillaire" },
+                { id: 'produit3', qteId: 'qte3', nom: "Crème coiffante" },
+                { id: 'produit4', qteId: 'qte4', nom: "Shampoo & Conditionneur" },
+                { id: 'produit5', qteId: 'qte5', nom: "Huile de Gombo" },
+                { id: 'produit6', qteId: 'qte6', nom: "Pommade capillaire" }
+            ];
+            
+            // Vérifier chaque produit
+            produits.forEach(produit => {
+                const select = document.getElementById(produit.id);
+                const qteInput = document.getElementById(produit.qteId);
+                const qte = parseInt(qteInput.value);
+                
+                if (select.value && qte > 0) {
+                    produitsSelectionnes = true;
+                    
+                    // Récupérer la variante si nécessaire
+                    let variante = "";
+                    if (select.value === "huile_4oz") variante = "4oz";
+                    if (select.value === "huile_2oz") variante = "2oz";
+                    
+                    // Ajouter au message
+                    if (variante) {
+                        message += `- ${qte} ${produit.nom} ${variante}%0A`;
+                    } else {
+                        message += `- ${qte} ${produit.nom}%0A`;
+                    }
+                }
+            });
+            
+            // Ajouter le prénom
+            message += `%0APrénom : ${prenom}`;
+            
+            // Si au moins un produit est sélectionné
+            if (produitsSelectionnes) {
+                // Rediriger vers WhatsApp
+                window.open(`https://wa.me/50947359294?text=${message}`, '_blank');
+            } else {
+                alert("Veuillez sélectionner au moins un produit.");
+            }
+        });
+    </script>
+</body>
+</html>
