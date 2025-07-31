@@ -274,7 +274,7 @@
         
         .valeurs-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
             max-width: 1200px;
             margin: 0 auto;
@@ -629,16 +629,16 @@
 <body>
     <!-- En-tête -->
     <header>
-        <a href="#" class="logo">SAH<span>BEL</span></a>
+        <a href="index.html" class="logo">SAH<span>BEL</span></a>
         <button class="menu-toggle" id="menuToggle">
             <i class="fas fa-bars"></i>
         </button>
         <nav>
             <ul id="navMenu">
-                <li><a href="#">Accueil</a></li>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="produits.html">Produits</a></li>
+                <li><a href="avis.html">Avis</a></li>
                 <li><a href="#">À propos</a></li>
-                <li><a href="#">Avis</a></li>
-                <li><a href="#">Produits</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </nav>
@@ -649,7 +649,7 @@
         <div class="banniere-content">
             <h1>Découvrez le pouvoir de la nature pour vos cheveux.</h1>
             <p>Des produits 100% naturels formulés pour stimuler la repousse capillaire et révéler la beauté naturelle de vos cheveux.</p>
-            <a href="#" class="btn">Découvrir nos produits</a>
+            <a href="produits.html" class="btn">Découvrir nos produits</a>
         </div>
     </section>
     
@@ -693,7 +693,7 @@
                     <h3>Huile de Repousse</h3>
                     <p>Un mélange exclusif d'huiles naturelles qui stimule la croissance capillaire et renforce les racines.</p>
                     <div class="produit-prix">49,99€</div>
-                    <a href="#" class="btn">Commander</a>
+                    <a href="produits.html" class="btn">Voir le produit</a>
                 </div>
             </div>
             <div class="produit-card">
@@ -704,7 +704,7 @@
                     <h3>Shampoing Fortifiant</h3>
                     <p>Nettoyant doux enrichi en vitamines pour des cheveux forts, brillants et pleins de vie.</p>
                     <div class="produit-prix">29,99€</div>
-                    <a href="#" class="btn">Commander</a>
+                    <a href="produits.html" class="btn">Voir le produit</a>
                 </div>
             </div>
             <div class="produit-card">
@@ -715,14 +715,43 @@
                     <h3>Sérum Intensif</h3>
                     <p>Un soin concentré pour une action ciblée sur les zones clairsemées ou fragilisées.</p>
                     <div class="produit-prix">59,99€</div>
-                    <a href="#" class="btn">Commander</a>
+                    <a href="produits.html" class="btn">Voir le produit</a>
                 </div>
             </div>
         </div>
     </section>
     
+    <!-- Section avis clients -->
+    <section class="valeurs" style="background-color: #fff;">
+        <h2 class="section-titre">Témoignages</h2>
+        <div class="valeurs-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+            <div class="valeur-card">
+                <div class="valeur-icon">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <p>"J'ai vu une différence en deux semaines, merci Sahbel ! Mes cheveux repoussent plus vite et sont plus forts."</p>
+                <div class="valeur-card" style="background: none; box-shadow: none; padding: 0; text-align: right; font-weight: 600;">- Marie</div>
+            </div>
+            <div class="valeur-card">
+                <div class="valeur-icon">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <p>"Enfin une marque naturelle qui respecte mes cheveux crépus. Les résultats sont visibles et mes cheveux sont en meilleure santé."</p>
+                <div class="valeur-card" style="background: none; box-shadow: none; padding: 0; text-align: right; font-weight: 600;">- Nadia</div>
+            </div>
+            <div class="valeur-card">
+                <div class="valeur-icon">
+                    <i class="fas fa-quote-left"></i>
+                </div>
+                <p>"Je recommande surtout l'huile, c'est magique. Après un mois d'utilisation, mes zones clairsemées se remplissent."</p>
+                <div class="valeur-card" style="background: none; box-shadow: none; padding: 0; text-align: right; font-weight: 600;">- Esther</div>
+            </div>
+        </div>
+        <a href="avis.html" class="btn" style="margin-top: 40px;">Voir tous les avis</a>
+    </section>
+    
     <!-- Bouton WhatsApp -->
-    <a href="https://wa.me/1234567890" class="whatsapp-btn" target="_blank" aria-label="Contactez-nous sur WhatsApp">
+    <a href="https://wa.me/50947359294" class="whatsapp-btn" target="_blank" aria-label="Contactez-nous sur WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
     
@@ -741,10 +770,10 @@
             </div>
             <div class="footer-col">
                 <h3>Liens rapides</h3>
-                <p><a href="#">Accueil</a></p>
+                <p><a href="index.html">Accueil</a></p>
+                <p><a href="produits.html">Produits</a></p>
+                <p><a href="avis.html">Avis clients</a></p>
                 <p><a href="#">À propos</a></p>
-                <p><a href="#">Nos produits</a></p>
-                <p><a href="#">Témoignages</a></p>
                 <p><a href="#">Contact</a></p>
             </div>
             <div class="footer-col">
