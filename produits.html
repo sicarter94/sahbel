@@ -68,10 +68,10 @@
             color: var(--couleur-accent);
         }
         
-        .logo::before {
-            content: "🌸";
-            margin-right: 8px;
-            font-size: 1.8rem;
+        /* Modification: Suppression du pseudo-élément fleur */
+        .logo-image {
+            height: 50px; /* Taille ajustable selon votre logo */
+            margin-right: 12px;
         }
         
         nav ul {
@@ -723,13 +723,23 @@
                 width: 25px;
                 height: 25px;
             }
+            
+            /* Adaptation du logo pour mobile */
+            .logo-image {
+                height: 35px;
+                margin-right: 8px;
+            }
         }
     </style>
 </head>
 <body>
     <!-- En-tête -->
     <header>
-        <a href="index.html" class="logo">SAH<span>BEL</span></a>
+        <a href="index.html" class="logo">
+            <!-- Modification: Remplacement du fleur par le logo -->
+            <img src="images/logo.png" alt="Logo SAHBEL" class="logo-image">
+            SAH<span>BEL</span>
+        </a>
         <button class="menu-toggle" id="menuToggle">
             <i class="fas fa-bars"></i>
         </button>
