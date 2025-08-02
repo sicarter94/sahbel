@@ -438,13 +438,31 @@
             font-size: 1rem;
         }
         
+        /* Suppression des mini-images */
         .mini-image {
-            width: 35px;
-            height: 35px;
-            border-radius: 4px;
-            object-fit: cover;
-            border: 1px solid #e0e0e0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: none;
+        }
+        
+        .reduction-info {
+            background-color: rgba(255, 158, 181, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 1rem;
+        }
+        
+        .reduction-info h3 {
+            font-family: var(--typo-titre);
+            margin-bottom: 10px;
+            color: var(--couleur-accent);
+        }
+        
+        .reduction-info ul {
+            padding-left: 20px;
+        }
+        
+        .reduction-info li {
+            margin-bottom: 5px;
         }
         
         .btn {
@@ -705,11 +723,6 @@
                 width: 25px;
                 height: 25px;
             }
-            
-            .mini-image {
-                width: 30px;
-                height: 30px;
-            }
         }
     </style>
 </head>
@@ -880,6 +893,17 @@
         <div class="container">
             <div class="commande-container">
                 <h2 class="section-titre">Commander maintenant</h2>
+                
+                <div class="reduction-info">
+                    <h3>Offre spéciale de réduction</h3>
+                    <ul>
+                        <li><strong>2 produits</strong> : 50 HTG de réduction</li>
+                        <li><strong>3 produits</strong> : 100 HTG de réduction</li>
+                        <li><strong>4 produits</strong> : 150 HTG de réduction</li>
+                        <li><strong>5 produits ou plus</strong> : 200 HTG de réduction</li>
+                    </ul>
+                </div>
+                
                 <form class="commande-form" id="commandeForm">
                     <div class="form-group">
                         <label for="produit1">
@@ -894,7 +918,6 @@
                             </select>
                             <div class="quantite-container">
                                 <input type="number" min="0" value="0" class="quantite-input" id="qte1">
-                                <img src="images/huile.jpg" alt="Huile" class="mini-image">
                             </div>
                         </div>
                     </div>
@@ -911,7 +934,6 @@
                             </select>
                             <div class="quantite-container">
                                 <input type="number" min="0" value="0" class="quantite-input" id="qte2">
-                                <img src="images/lotion.jpg" alt="Lotion" class="mini-image">
                             </div>
                         </div>
                     </div>
@@ -928,7 +950,6 @@
                             </select>
                             <div class="quantite-container">
                                 <input type="number" min="0" value="0" class="quantite-input" id="qte3">
-                                <img src="images/creme.jpg" alt="Crème" class="mini-image">
                             </div>
                         </div>
                     </div>
@@ -945,7 +966,6 @@
                             </select>
                             <div class="quantite-container">
                                 <input type="number" min="0" value="0" class="quantite-input" id="qte4">
-                                <img src="images/shampoo.jpg" alt="Shampoo" class="mini-image">
                             </div>
                         </div>
                     </div>
@@ -962,7 +982,6 @@
                             </select>
                             <div class="quantite-container">
                                 <input type="number" min="0" value="0" class="quantite-input" id="qte5">
-                                <img src="images/gombo.jpg" alt="Gombo" class="mini-image">
                             </div>
                         </div>
                     </div>
@@ -979,7 +998,6 @@
                             </select>
                             <div class="quantite-container">
                                 <input type="number" min="0" value="0" class="quantite-input" id="qte6">
-                                <img src="images/pommade.jpg" alt="Pommade" class="mini-image">
                             </div>
                         </div>
                     </div>
@@ -1034,12 +1052,34 @@
         // Gestion du formulaire de commande
         const commandeForm = document.getElementById('commandeForm');
         
+        // Prix des produits
+        const prixProduits = {
+            "huile_4oz": 400,
+            "huile_2oz": 250,
+            "lotion": 600,
+            "creme": 600,
+            "shampoo": 500,
+            "gombo": 300,
+            "pommade": 300
+        };
+        
+        // Calcul des réductions
+        function calculerReduction(totalProduits) {
+            if (totalProduits >= 5) return 200;
+            if (totalProduits >= 4) return 150;
+            if (totalProduits >= 3) return 100;
+            if (totalProduits >= 2) return 50;
+            return 0;
+        }
+        
         commandeForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
             const prenom = document.getElementById('prenom').value;
             let message = `Bonjour SAHBEL, je souhaite commander :%0A%0A`;
             let produitsSelectionnes = false;
+            let totalSansReduction = 0;
+            let totalProduits = 0;
             
             // Liste des produits
             const produits = [
@@ -1062,23 +1102,39 @@
                     
                     // Récupérer la variante si nécessaire
                     let variante = "";
+                    let prixUnitaire = prixProduits[select.value];
+                    
                     if (select.value === "huile_4oz") variante = "4oz";
                     if (select.value === "huile_2oz") variante = "2oz";
                     
+                    // Calculer le sous-total pour ce produit
+                    const sousTotal = prixUnitaire * qte;
+                    totalSansReduction += sousTotal;
+                    totalProduits += qte;
+                    
                     // Ajouter au message
                     if (variante) {
-                        message += `- ${qte} ${produit.nom} ${variante}%0A`;
+                        message += `- ${qte} x ${produit.nom} ${variante} : ${sousTotal} HTG%0A`;
                     } else {
-                        message += `- ${qte} ${produit.nom}%0A`;
+                        message += `- ${qte} x ${produit.nom} : ${sousTotal} HTG%0A`;
                     }
                 }
             });
             
-            // Ajouter le prénom
-            message += `%0APrénom : ${prenom}`;
-            
             // Si au moins un produit est sélectionné
             if (produitsSelectionnes) {
+                // Calculer la réduction
+                const reduction = calculerReduction(totalProduits);
+                const totalAPayer = totalSansReduction - reduction;
+                
+                // Ajouter les détails de prix au message
+                message += `%0ATotal sans réduction: ${totalSansReduction} HTG%0A`;
+                message += `Réduction: ${reduction} HTG%0A`;
+                message += `Total à payer: ${totalAPayer} HTG%0A`;
+                
+                // Ajouter le prénom
+                message += `%0APrénom : ${prenom}`;
+                
                 // Rediriger vers WhatsApp
                 window.open(`https://wa.me/50947359294?text=${message}`, '_blank');
             } else {
