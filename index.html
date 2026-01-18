@@ -987,64 +987,88 @@ Voici le code complet optimisé pour mobile avec les modifications demandées :
             margin-top: 10px;
         }
         
-        /* Section Résultats */
-        .resultats {
-            padding: 50px 0;
-        }
-        
-        .resultats-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 30px auto 0;
-        }
-        
-        .resultat-card {
-            background-color: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--ombre-legere);
-            transition: var(--transition);
-        }
-        
-        .resultat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--ombre-moyenne);
-        }
-        
-        .resultat-images {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            padding: 12px;
-        }
-        
-        .resultat-img {
-            height: 180px;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-        
-        .resultat-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .resultat-info {
-            padding: 15px;
-            text-align: center;
-        }
-        
-        .resultat-label {
-            display: flex;
-            justify-content: space-between;
-            padding: 0 12px;
-            font-weight: 600;
-            color: #555;
-            font-size: 0.9rem;
-        }
+       /* Section Résultats */
+.resultats {
+    padding: 50px 0;
+}
+
+.resultats-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 30px auto 0;
+}
+
+.resultat-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--ombre-legere);
+    transition: var(--transition);
+}
+
+.resultat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--ombre-moyenne);
+}
+
+.resultat-images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    padding: 15px;
+}
+
+.resultat-img {
+    height: 250px;
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+}
+
+.resultat-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.resultat-img:hover img {
+    transform: scale(1.03);
+}
+
+.resultat-info {
+    padding: 15px;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.resultat-label {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px 10px;
+    font-weight: 600;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+    .resultat-images {
+        grid-template-columns: 1fr;
+    }
+    
+    .resultat-img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .resultat-img {
+        height: 180px;
+    }
+}
         
         /* Section Avis */
         .avis {
@@ -2057,48 +2081,48 @@ Voici le code complet optimisé pour mobile avec les modifications demandées :
         </div>
     </section>
     
-    <!-- Section Résultats -->
-    <section class="resultats" id="resultats">
-        <div class="container">
-            <h2 class="section-titre">Des résultats visibles</h2>
-            <div class="resultats-container">
-                <div class="resultat-card">
-                    <div class="resultat-label">
-                        <span>Avant</span>
-                        <span>Après</span>
+   <!-- Section Résultats -->
+<section class="resultats" id="resultats">
+    <div class="container">
+        <h2 class="section-titre">Des résultats visibles</h2>
+        <div class="resultats-container">
+            <div class="resultat-card">
+                <div class="resultat-label">
+                    <span>Avant</span>
+                    <span>Après</span>
+                </div>
+                <div class="resultat-images">
+                    <div class="resultat-img">
+                        <img src="images/avant1.jpg" alt="Résultat avant traitement SAHBEL" style="object-position: top;">
                     </div>
-                    <div class="resultat-images">
-                        <div class="resultat-img">
-                            <img src="images/avant1.jpg" alt="Résultat avant traitement SAHBEL">
-                        </div>
-                        <div class="resultat-img">
-                            <img src="images/apres1.jpg" alt="Résultat après traitement SAHBEL">
-                        </div>
-                    </div>
-                    <div class="resultat-info">
-                        <p>Amélioration visible de la densité et de la brillance après 2 mois d'utilisation.</p>
+                    <div class="resultat-img">
+                        <img src="images/apres1.jpg" alt="Résultat après traitement SAHBEL" style="object-position: top;">
                     </div>
                 </div>
-                <div class="resultat-card">
-                    <div class="resultat-label">
-                        <span>Avant</span>
-                        <span>Après</span>
+                <div class="resultat-info">
+                    <p>Amélioration visible de la densité et de la brillance après 2 mois d'utilisation.</p>
+                </div>
+            </div>
+            <div class="resultat-card">
+                <div class="resultat-label">
+                    <span>Avant</span>
+                    <span>Après</span>
+                </div>
+                <div class="resultat-images">
+                    <div class="resultat-img">
+                        <img src="images/avant2.jpg" alt="Résultat avant traitement SAHBEL" style="object-position: top;">
                     </div>
-                    <div class="resultat-images">
-                        <div class="resultat-img">
-                            <img src="images/avant2.jpg" alt="Résultat avant traitement SAHBEL">
-                        </div>
-                        <div class="resultat-img">
-                            <img src="images/apres2.jpg" alt="Résultat après traitement SAHBEL">
-                        </div>
+                    <div class="resultat-img">
+                        <img src="images/apres2.jpg" alt="Résultat après traitement SAHBEL" style="object-position: top;">
                     </div>
-                    <div class="resultat-info">
-                        <p>Repousse significative et cheveux plus forts après 3 mois de soins réguliers.</p>
-                    </div>
+                </div>
+                <div class="resultat-info">
+                    <p>Repousse significative et cheveux plus forts après 3 mois de soins réguliers.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
     
     <!-- Section Avis -->
     <section class="avis" id="avis">
