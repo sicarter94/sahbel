@@ -1,5 +1,3 @@
-# Code SAHBEL - Version Optimisée Mobile
-
 ```html
 <!DOCTYPE html>
 <html lang="fr">
@@ -26,22 +24,22 @@
             --transition: all 0.4s ease;
             --border-radius: 12px;
         }
-        
+      
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        
+      
         /* Reset et styles de base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+      
         html {
             scroll-behavior: smooth;
         }
-        
+      
         body {
             font-family: var(--typo-texte);
             color: var(--couleur-texte);
@@ -49,13 +47,13 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
-        
+      
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+      
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -67,22 +65,22 @@
                 transform: translateY(0);
             }
         }
-        
+      
         @keyframes pulse {
-            0% { 
+            0% {
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
                 transform: scale(1);
             }
-            70% { 
+            70% {
                 box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
                 transform: scale(1.05);
             }
-            100% { 
+            100% {
                 box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
                 transform: scale(1);
             }
         }
-        
+      
         /* Header / Navigation */
         header {
             display: flex;
@@ -98,7 +96,7 @@
             box-shadow: var(--ombre-legere);
             transition: var(--transition);
         }
-        
+      
         .logo {
             display: flex;
             align-items: center;
@@ -108,25 +106,25 @@
             font-weight: 700;
             color: var(--couleur-texte);
         }
-        
+      
         .logo-img {
             height: 40px;
             margin-right: 10px;
         }
-        
+      
         .logo span {
             color: var(--couleur-accent);
         }
-        
+      
         nav ul {
             display: flex;
             list-style: none;
         }
-        
+      
         nav ul li {
             margin-left: 20px;
         }
-        
+      
         nav ul li a {
             text-decoration: none;
             color: var(--couleur-texte);
@@ -135,11 +133,11 @@
             transition: var(--transition);
             position: relative;
         }
-        
+      
         nav ul li a:hover {
             color: var(--couleur-accent);
         }
-        
+      
         nav ul li a::after {
             content: '';
             position: absolute;
@@ -150,11 +148,11 @@
             background-color: var(--couleur-accent);
             transition: width 0.3s ease;
         }
-        
+      
         nav ul li a:hover::after {
             width: 100%;
         }
-        
+      
         .menu-toggle {
             display: none;
             background: none;
@@ -167,7 +165,7 @@
             top: 50%;
             transform: translateY(-50%);
         }
-        
+      
         /* Section Hero */
         .hero {
             min-height: 100vh;
@@ -178,7 +176,7 @@
             overflow: hidden;
             background: linear-gradient(135deg, #f9f5f0 0%, #ffffff 100%);
         }
-        
+      
         .hero::before {
             content: "";
             position: absolute;
@@ -189,14 +187,14 @@
             background: radial-gradient(circle, rgba(255,158,181,0.1) 0%, rgba(255,255,255,0) 70%);
             z-index: 0;
         }
-        
+      
         .hero-content {
             position: relative;
             z-index: 2;
             max-width: 600px;
             animation: fadeInUp 1s ease-out;
         }
-        
+      
         .hero h1 {
             font-family: var(--typo-titre);
             font-size: 2.5rem;
@@ -204,13 +202,13 @@
             line-height: 1.2;
             color: var(--couleur-titre-principal);
         }
-        
+      
         .hero p {
             font-size: 1.1rem;
             margin-bottom: 30px;
             color: #555;
         }
-        
+      
         .hero-visual {
             position: absolute;
             right: 5%;
@@ -223,13 +221,14 @@
             box-shadow: var(--ombre-moyenne);
             animation: fadeInUp 1.2s ease-out;
         }
-        
+      
         .hero-visual img {
-            width: 100%;
+            max-width: 100%;
+            width: auto;
             height: auto;
             display: block;
         }
-        
+      
         .btn {
             display: inline-block;
             background-color: var(--couleur-accent);
@@ -250,7 +249,7 @@
             margin-right: 10px;
             margin-bottom: 10px;
         }
-        
+      
         .btn::before {
             content: '';
             position: absolute;
@@ -262,34 +261,34 @@
             transition: var(--transition);
             z-index: -1;
         }
-        
+      
         .btn:hover {
             color: var(--couleur-accent);
             transform: translateY(-3px);
             box-shadow: var(--ombre-moyenne);
         }
-        
+      
         .btn:hover::before {
             width: 100%;
         }
-        
+      
         .btn-secondary {
             background-color: transparent;
             color: var(--couleur-accent);
             border: 2px solid var(--couleur-accent);
         }
-        
+      
         .btn-secondary:hover {
             background-color: var(--couleur-accent);
             color: white;
         }
-        
+      
         /* Section Gamme */
         .gamme {
             padding: 50px 0;
             background-color: var(--couleur-secondaire);
         }
-        
+      
         .section-titre {
             font-family: var(--typo-titre);
             font-size: 2rem;
@@ -301,7 +300,7 @@
             transform: translateX(-50%);
             color: var(--couleur-titre-principal);
         }
-        
+      
         .section-titre::after {
             content: "";
             position: absolute;
@@ -312,7 +311,7 @@
             height: 3px;
             background-color: var(--couleur-accent);
         }
-        
+      
         .gamme-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -320,7 +319,7 @@
             max-width: 1000px;
             margin: 0 auto;
         }
-        
+      
         .gamme-item {
             background-color: white;
             border-radius: var(--border-radius);
@@ -328,26 +327,32 @@
             box-shadow: var(--ombre-legere);
             transition: var(--transition);
         }
-        
+      
         .gamme-item:hover {
             transform: translateY(-5px);
             box-shadow: var(--ombre-moyenne);
         }
-        
+      
         .gamme-image {
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
+            height: 350px; /* Taille augmentée */
         }
-        
+      
         .gamme-image img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: contain; /* Adaptation sans rognage */
             transition: transform 0.5s ease;
         }
-        
+      
         .gamme-item:hover .gamme-image img {
             transform: scale(1.05);
         }
-        
+      
         .gamme-caption {
             padding: 15px;
             text-align: center;
@@ -355,12 +360,12 @@
             font-size: 1.1rem;
             color: #333;
         }
-        
+      
         /* Section Valeurs */
         .valeurs {
             padding: 50px 0;
         }
-        
+      
         .valeurs-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -368,7 +373,7 @@
             max-width: 1200px;
             margin: 30px auto 0;
         }
-        
+      
         .valeur-card {
             background-color: white;
             padding: 25px 20px;
@@ -377,41 +382,41 @@
             transition: var(--transition);
             text-align: center;
         }
-        
+      
         .valeur-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--ombre-moyenne);
         }
-        
+      
         .valeur-icon {
             font-size: 2.5rem;
             margin-bottom: 15px;
             color: var(--couleur-vert-naturel);
         }
-        
+      
         .valeur-card h3 {
             font-family: var(--typo-titre);
             font-size: 1.5rem;
             margin-bottom: 10px;
             color: #333;
         }
-        
+      
         .valeur-card p {
             color: #555;
             font-size: 0.95rem;
         }
-        
+      
         /* Section Produits */
         .produits {
             padding: 50px 0;
             background-color: var(--couleur-secondaire);
         }
-        
+      
         .produits-header {
             text-align: center;
             margin-bottom: 30px;
         }
-        
+      
         .produits-header h2 {
             font-family: var(--typo-titre);
             font-size: 2rem;
@@ -420,12 +425,12 @@
             color: var(--couleur-titre-principal);
             margin-bottom: 10px;
         }
-        
+      
         .produits-header p {
             font-size: 1rem;
             color: #666;
         }
-        
+      
         .produits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -433,7 +438,7 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+      
         .produit-card {
             display: flex;
             flex-direction: column;
@@ -445,38 +450,42 @@
             transition: var(--transition);
             box-shadow: var(--ombre-legere);
         }
-        
+      
         .produit-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--ombre-moyenne);
         }
-        
+      
         .produit-image {
             width: 100%;
-            height: 250px;
+            height: 350px; /* Taille augmentée */
             border-radius: 8px;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9f9f9;
         }
-        
+      
         .produit-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
         }
-        
+      
         .produit-info {
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
-        
+      
         .produit-nom {
             font-size: 1.1rem;
             font-weight: 600;
             color: #333;
             margin-bottom: 5px;
         }
-        
+      
         .produit-desc {
             font-size: 0.9rem;
             color: #666;
@@ -484,14 +493,14 @@
             margin-bottom: 10px;
             line-height: 1.4;
         }
-        
+      
         .produit-prix {
             font-size: 1rem;
             font-weight: 500;
             color: #333;
             margin-bottom: 10px;
         }
-        
+      
         .produit-btn {
             display: inline-flex;
             align-items: center;
@@ -508,19 +517,19 @@
             border: none;
             cursor: pointer;
         }
-        
+      
         .produit-btn:hover {
             background-color: #ff4da6;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(255, 107, 181, 0.2);
         }
-        
+      
         /* Section Causes */
         .causes {
             padding: 50px 0;
             background-color: var(--couleur-secondaire);
         }
-        
+      
         .causes-card {
             background-color: white;
             border-radius: var(--border-radius);
@@ -530,11 +539,11 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+      
         .causes-card:hover {
             transform: translateY(-3px);
         }
-        
+      
         .causes-image {
             width: 100%;
             padding: 20px;
@@ -543,19 +552,20 @@
             justify-content: center;
             background-color: #f9f9f9;
         }
-        
+      
         .causes-image img {
-            width: 100%;
+            max-width: 100%;
+            width: auto;
             height: auto;
-            max-height: 400px;
+            max-height: 500px; /* Taille augmentée */
             border-radius: 8px;
             box-shadow: var(--ombre-legere);
         }
-        
+      
         .causes-content {
             padding: 20px;
         }
-        
+      
         .causes-content h2 {
             font-family: var(--typo-titre);
             font-size: 1.8rem;
@@ -564,7 +574,7 @@
             position: relative;
             text-align: center;
         }
-        
+      
         .causes-content h2::after {
             content: "";
             position: absolute;
@@ -575,18 +585,18 @@
             height: 3px;
             background-color: var(--couleur-accent);
         }
-        
+      
         .causes-intro {
             text-align: center;
             margin-bottom: 20px;
             color: #555;
             font-size: 1rem;
         }
-        
+      
         .causes-list {
             margin-top: 15px;
         }
-        
+      
         .causes-list ul {
             list-style: none;
             padding-left: 0;
@@ -594,7 +604,7 @@
             grid-template-columns: 1fr;
             gap: 10px;
         }
-        
+      
         .causes-list li {
             padding: 10px 0;
             padding-left: 25px;
@@ -604,11 +614,11 @@
             line-height: 1.4;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
-        
+      
         .causes-list li:last-child {
             border-bottom: none;
         }
-        
+      
         .causes-list li::before {
             content: "•";
             position: absolute;
@@ -616,7 +626,7 @@
             color: var(--couleur-accent);
             font-size: 1.2rem;
         }
-        
+      
         .causes-conclusion {
             margin-top: 20px;
             padding: 15px;
@@ -625,23 +635,23 @@
             border-left: 3px solid var(--couleur-accent);
             text-align: center;
         }
-        
+      
         .causes-conclusion p {
             color: #333;
             font-weight: 500;
             font-size: 1rem;
         }
-        
+      
         /* Section Aide */
         .aide {
             padding: 50px 0;
         }
-        
+      
         .aide-container {
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+      
         .aide-image {
             width: 100%;
             padding: 20px;
@@ -652,15 +662,16 @@
             border-radius: var(--border-radius);
             margin-bottom: 20px;
         }
-        
+      
         .aide-image img {
-            width: 100%;
+            max-width: 100%;
+            width: auto;
             height: auto;
-            max-height: 400px;
+            max-height: 500px; /* Taille augmentée */
             border-radius: 8px;
             box-shadow: var(--ombre-legere);
         }
-        
+      
         .aide-content h2 {
             font-family: var(--typo-titre);
             font-size: 1.8rem;
@@ -669,7 +680,7 @@
             position: relative;
             text-align: center;
         }
-        
+      
         .aide-content h2::after {
             content: "";
             position: absolute;
@@ -680,7 +691,7 @@
             height: 3px;
             background-color: var(--couleur-accent);
         }
-        
+      
         .aide-intro {
             font-size: 1rem;
             color: #555;
@@ -688,11 +699,11 @@
             line-height: 1.6;
             text-align: center;
         }
-        
+      
         .aide-details {
             margin-top: 20px;
         }
-        
+      
         .aide-details h3 {
             font-family: var(--typo-titre);
             font-size: 1.5rem;
@@ -700,11 +711,11 @@
             margin-bottom: 15px;
             text-align: center;
         }
-        
+      
         .aide-list {
             margin-bottom: 20px;
         }
-        
+      
         .aide-list ul {
             list-style: none;
             padding-left: 0;
@@ -712,7 +723,7 @@
             grid-template-columns: 1fr;
             gap: 10px;
         }
-        
+      
         .aide-list li {
             padding: 8px 0;
             padding-left: 25px;
@@ -721,7 +732,7 @@
             font-size: 0.95rem;
             line-height: 1.4;
         }
-        
+      
         .aide-list li::before {
             content: "✓";
             position: absolute;
@@ -730,7 +741,7 @@
             font-weight: bold;
             font-size: 1rem;
         }
-        
+      
         .aide-conclusion {
             padding: 15px;
             background-color: rgba(138, 160, 122, 0.05);
@@ -739,13 +750,13 @@
             margin-bottom: 20px;
             text-align: center;
         }
-        
+      
         .aide-conclusion p {
             color: #333;
             font-weight: 500;
             font-size: 1rem;
         }
-        
+      
         .aide-resultats h3 {
             font-family: var(--typo-titre);
             font-size: 1.5rem;
@@ -753,13 +764,13 @@
             margin-bottom: 15px;
             text-align: center;
         }
-        
+      
         .aide-resultats p {
             text-align: center;
             margin-bottom: 15px;
             color: #555;
         }
-        
+      
         .aide-resultats ul {
             list-style: none;
             padding-left: 0;
@@ -767,7 +778,7 @@
             grid-template-columns: 1fr;
             gap: 8px;
         }
-        
+      
         .aide-resultats li {
             padding: 6px 0;
             padding-left: 25px;
@@ -776,19 +787,19 @@
             font-size: 0.95rem;
             line-height: 1.4;
         }
-        
+      
         .aide-resultats li::before {
             content: "🌿";
             position: absolute;
             left: 0;
         }
-        
+      
         /* Section Recommandations */
         .recommandations {
             padding: 50px 0;
             background-color: var(--couleur-secondaire);
         }
-        
+      
         .recommandations-header {
             text-align: center;
             margin-bottom: 30px;
@@ -796,20 +807,20 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+      
         .recommandations-header h2 {
             font-family: var(--typo-titre);
             font-size: 1.8rem;
             color: var(--couleur-titre-principal);
             margin-bottom: 10px;
         }
-        
+      
         .recommandations-header p {
             font-size: 1rem;
             color: #666;
             line-height: 1.5;
         }
-        
+      
         .recommandations-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -817,7 +828,7 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+      
         .recommandation-card {
             background-color: white;
             border-radius: var(--border-radius);
@@ -828,12 +839,12 @@
             flex-direction: column;
             height: 100%;
         }
-        
+      
         .recommandation-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--ombre-moyenne);
         }
-        
+      
         .recommandation-image {
             overflow: hidden;
             display: flex;
@@ -841,27 +852,28 @@
             justify-content: center;
             background-color: #f9f9f9;
         }
-        
+      
         .recommandation-image img {
-            width: 100%;
+            max-width: 100%;
+            width: auto;
             height: auto;
-            max-height: 250px;
+            max-height: 350px; /* Taille augmentée */
             display: block;
         }
-        
+      
         .recommandation-content {
             padding: 20px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
-        
+      
         .recommandation-titre {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
         }
-        
+      
         .recommandation-numero {
             display: inline-flex;
             align-items: center;
@@ -875,54 +887,54 @@
             font-size: 1rem;
             margin-right: 10px;
         }
-        
+      
         .recommandation-nom {
             font-family: var(--typo-titre);
             font-size: 1.4rem;
             color: #333;
             margin: 0;
         }
-        
+      
         .recommandation-produits {
             font-size: 1rem;
             color: var(--couleur-accent);
             font-weight: 500;
             margin-bottom: 10px;
         }
-        
+      
         .recommandation-pourquoi {
             margin-bottom: 10px;
         }
-        
+      
         .recommandation-pourquoi h4 {
             font-size: 1.1rem;
             color: #333;
             margin-bottom: 5px;
             font-weight: 600;
         }
-        
+      
         .recommandation-pourquoi p {
             color: #555;
             font-size: 0.9rem;
             line-height: 1.4;
         }
-        
+      
         .recommandation-apporte {
             margin-bottom: 10px;
         }
-        
+      
         .recommandation-apporte h4 {
             font-size: 1.1rem;
             color: #333;
             margin-bottom: 5px;
             font-weight: 600;
         }
-        
+      
         .recommandation-apporte ul {
             list-style: none;
             padding-left: 0;
         }
-        
+      
         .recommandation-apporte li {
             padding: 5px 0;
             padding-left: 18px;
@@ -931,7 +943,7 @@
             font-size: 0.9rem;
             line-height: 1.4;
         }
-        
+      
         .recommandation-apporte li::before {
             content: "•";
             position: absolute;
@@ -939,7 +951,7 @@
             color: var(--couleur-accent);
             font-size: 1rem;
         }
-        
+      
         .recommandation-resultat {
             margin-top: auto;
             padding: 12px;
@@ -947,21 +959,21 @@
             border-radius: 6px;
             border-left: 2px solid var(--couleur-titre-principal);
         }
-        
+      
         .recommandation-resultat p {
             color: #333;
             font-weight: 500;
             font-size: 0.9rem;
             margin: 0;
         }
-        
+      
         /* Section Pourquoi SAHBEL */
         .pourquoi-sahbel {
             padding: 30px 0 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+      
         .pourquoi-sahbel h3 {
             font-family: var(--typo-titre);
             font-size: 1.6rem;
@@ -969,13 +981,13 @@
             text-align: center;
             margin-bottom: 20px;
         }
-        
+      
         .pourquoi-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
         }
-        
+      
         .pourquoi-item {
             text-align: center;
             padding: 15px;
@@ -983,25 +995,25 @@
             border-radius: var(--border-radius);
             box-shadow: var(--ombre-legere);
         }
-        
+      
         .pourquoi-item .icon {
             font-size: 2rem;
             margin-bottom: 10px;
             color: var(--couleur-vert-naturel);
         }
-        
+      
         .pourquoi-item p {
             color: #555;
             font-size: 0.9rem;
             line-height: 1.4;
             margin: 0;
         }
-        
+      
         /* Section Résultats */
         .resultats {
             padding: 50px 0;
         }
-        
+      
         .resultats-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1009,7 +1021,7 @@
             max-width: 1200px;
             margin: 30px auto 0;
         }
-        
+      
         .resultat-card {
             background-color: white;
             border-radius: var(--border-radius);
@@ -1019,12 +1031,12 @@
             display: flex;
             flex-direction: column;
         }
-        
+      
         .resultat-card:hover {
             transform: translateY(-3px);
             box-shadow: var(--ombre-moyenne);
         }
-        
+      
         .resultat-label {
             display: flex;
             justify-content: space-between;
@@ -1033,14 +1045,14 @@
             color: #555;
             font-size: 0.9rem;
         }
-        
+      
         .resultat-images {
             display: flex;
             flex-direction: column;
             gap: 10px;
             padding: 15px;
         }
-        
+      
         .resultat-img {
             overflow: hidden;
             border-radius: 8px;
@@ -1049,33 +1061,34 @@
             justify-content: center;
             background-color: #f9f9f9;
         }
-        
+      
         .resultat-img img {
-            width: 100%;
+            max-width: 100%;
+            width: auto;
             height: auto;
-            max-height: 300px;
+            max-height: 400px; /* Taille augmentée */
             display: block;
         }
-        
+      
         .resultat-info {
             padding: 15px;
             text-align: center;
             border-top: 1px solid #eee;
         }
-        
+      
         .resultat-info p {
             color: #555;
             font-size: 0.9rem;
             line-height: 1.4;
             margin: 0;
         }
-        
+      
         /* Section Avis */
         .avis {
             padding: 50px 0;
             background-color: var(--couleur-secondaire);
         }
-        
+      
         .avis-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1083,7 +1096,7 @@
             max-width: 1200px;
             margin: 30px auto 0;
         }
-        
+      
         .avis-card {
             background-color: white;
             padding: 25px 20px 20px;
@@ -1092,14 +1105,14 @@
             position: relative;
             transition: var(--transition);
         }
-        
+      
         .avis-card:hover {
             transform: translateY(-5px);
             box-shadow: var(--ombre-moyenne);
         }
-        
+      
         .avis-card::before {
-            content: """;
+            content: "";
             position: absolute;
             top: 15px;
             left: 20px;
@@ -1108,7 +1121,7 @@
             font-family: Georgia, serif;
             line-height: 1;
         }
-        
+      
         .avis-texte {
             margin-bottom: 15px;
             position: relative;
@@ -1118,7 +1131,7 @@
             font-size: 0.95rem;
             line-height: 1.5;
         }
-        
+      
         .avis-auteur {
             font-weight: 600;
             color: #333;
@@ -1126,7 +1139,7 @@
             align-items: center;
             font-size: 1rem;
         }
-        
+      
         .avis-auteur::before {
             content: "";
             display: inline-block;
@@ -1135,19 +1148,19 @@
             background-color: var(--couleur-vert-naturel);
             margin-right: 10px;
         }
-        
+      
         .avis-stars {
             color: #ffc107;
             margin-bottom: 10px;
             font-size: 0.9rem;
         }
-        
+      
         /* Section Commander */
         .commande-section {
             padding: 50px 0;
             background: linear-gradient(to bottom, var(--couleur-secondaire) 0%, white 100%);
         }
-        
+      
         .commande-container {
             max-width: 800px;
             margin: 0 auto;
@@ -1156,17 +1169,17 @@
             border-radius: var(--border-radius);
             box-shadow: var(--ombre-legere);
         }
-        
+      
         .commande-form {
             display: grid;
             gap: 15px;
         }
-        
+      
         .form-group {
             display: flex;
             flex-direction: column;
         }
-        
+      
         .form-group label {
             margin-bottom: 8px;
             font-weight: 500;
@@ -1175,7 +1188,7 @@
             display: flex;
             align-items: center;
         }
-        
+      
         .form-group label img {
             width: 20px;
             height: 20px;
@@ -1184,8 +1197,8 @@
             object-fit: cover;
             border: 1px solid #eee;
         }
-        
-        .form-group select, 
+      
+        .form-group select,
         .form-group input {
             padding: 12px 15px;
             border: 1px solid #ddd;
@@ -1195,27 +1208,27 @@
             transition: var(--transition);
             background-color: white;
         }
-        
-        .form-group select:focus, 
+      
+        .form-group select:focus,
         .form-group input:focus {
             outline: none;
             border-color: var(--couleur-accent);
             box-shadow: 0 0 0 2px rgba(255, 107, 181, 0.2);
         }
-        
+      
         .produit-select {
             display: grid;
             grid-template-columns: 1fr auto;
             gap: 10px;
             align-items: center;
         }
-        
+      
         .quantite-container {
             display: flex;
             align-items: center;
             gap: 8px;
         }
-        
+      
         .quantite-input {
             width: 80px;
             text-align: center;
@@ -1225,7 +1238,7 @@
             font-family: var(--typo-texte);
             font-size: 0.95rem;
         }
-        
+      
         .reduction-info {
             background-color: rgba(255, 107, 181, 0.1);
             padding: 15px;
@@ -1233,30 +1246,30 @@
             margin: 15px 0;
             font-size: 0.9rem;
         }
-        
+      
         .reduction-info h3 {
             font-family: var(--typo-titre);
             margin-bottom: 8px;
             color: var(--couleur-accent);
             font-size: 1.2rem;
         }
-        
+      
         .reduction-info ul {
             padding-left: 20px;
         }
-        
+      
         .reduction-info li {
             margin-bottom: 5px;
             font-size: 0.9rem;
         }
-        
+      
         /* Footer */
         footer {
             background-color: #f9f9f9;
             padding: 40px 5% 20px;
             border-top: 1px solid rgba(0, 0, 0, 0.05);
         }
-        
+      
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -1264,7 +1277,7 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-        
+      
         .footer-col h3 {
             font-family: var(--typo-titre);
             font-size: 1.3rem;
@@ -1273,7 +1286,7 @@
             position: relative;
             display: inline-block;
         }
-        
+      
         .footer-col h3::after {
             content: "";
             position: absolute;
@@ -1283,13 +1296,13 @@
             height: 2px;
             background-color: var(--couleur-accent);
         }
-        
+      
         .footer-col p {
             color: #666;
             margin-bottom: 10px;
             font-size: 0.9rem;
         }
-        
+      
         .footer-col a {
             color: #666;
             text-decoration: none;
@@ -1298,18 +1311,18 @@
             margin-bottom: 8px;
             font-size: 0.9rem;
         }
-        
+      
         .footer-col a:hover {
             color: var(--couleur-accent);
             padding-left: 5px;
         }
-        
+      
         .social-icons {
             display: flex;
             margin-top: 15px;
             flex-wrap: wrap;
         }
-        
+      
         .social-icons a {
             display: inline-flex;
             justify-content: center;
@@ -1324,13 +1337,13 @@
             transition: var(--transition);
             box-shadow: var(--ombre-legere);
         }
-        
+      
         .social-icons a:hover {
             background-color: var(--couleur-accent);
             color: white;
             transform: translateY(-3px);
         }
-        
+      
         .copyright {
             text-align: center;
             margin-top: 30px;
@@ -1339,7 +1352,7 @@
             font-size: 0.8rem;
             color: rgba(0, 0, 0, 0.6);
         }
-        
+      
         /* Bouton WhatsApp flottant */
         .whatsapp-btn {
             position: fixed;
@@ -1359,37 +1372,37 @@
             transition: var(--transition);
             animation: pulse 2s infinite;
         }
-        
+      
         .whatsapp-btn:hover {
             transform: scale(1.1);
             animation: none;
         }
-        
+      
         /* Responsive - PRIORITÉ MOBILE */
         @media (max-width: 768px) {
             header {
                 padding: 12px 5%;
                 flex-wrap: wrap;
             }
-            
+          
             .logo {
                 order: 1;
                 flex: 1;
             }
-            
+          
             .menu-toggle {
                 display: block;
                 order: 2;
                 position: static;
                 transform: none;
             }
-            
+          
             nav {
                 order: 3;
                 width: 100%;
                 margin-top: 10px;
             }
-            
+          
             nav ul {
                 display: none;
                 position: static;
@@ -1399,41 +1412,41 @@
                 width: 100%;
                 text-align: center;
             }
-            
+          
             nav ul.active {
                 display: flex;
             }
-            
+          
             nav ul li {
                 margin: 0;
                 padding: 12px 5%;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             }
-            
+          
             nav ul li:last-child {
                 border-bottom: none;
             }
-            
+          
             .hero {
                 flex-direction: column;
                 padding: 80px 5% 30px;
                 text-align: center;
                 min-height: auto;
             }
-            
+          
             .hero-content {
                 max-width: 100%;
                 margin-bottom: 30px;
             }
-            
+          
             .hero h1 {
                 font-size: 1.8rem;
             }
-            
+          
             .hero p {
                 font-size: 1rem;
             }
-            
+          
             .hero-visual {
                 position: relative;
                 right: auto;
@@ -1442,135 +1455,155 @@
                 width: 100%;
                 margin-top: 0;
             }
-            
+          
             .hero-visual img {
                 height: auto;
             }
-            
+          
             .btn {
                 display: block;
                 width: 100%;
                 margin-right: 0;
                 margin-bottom: 10px;
             }
-            
+          
             .section-titre {
                 font-size: 1.6rem;
                 margin-bottom: 20px;
             }
-            
+          
             .gamme-container {
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
-            
+
+            .gamme-image {
+                height: 250px; /* Ajustement mobile */
+            }
+          
             .valeurs-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
-            
+          
             .valeur-card {
                 padding: 20px 15px;
             }
-            
+          
             .produits-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
-            
+          
             .produit-card {
                 padding: 12px;
             }
-            
+          
             .produit-image {
-                height: 200px;
+                height: 250px; /* Ajustement mobile */
             }
-            
+          
             .causes-card {
                 padding: 0;
             }
-            
+          
             .causes-content h2 {
                 font-size: 1.5rem;
             }
-            
+          
             .causes-list li {
                 font-size: 0.9rem;
                 padding-left: 20px;
             }
-            
+
+            .causes-image img {
+                max-height: 350px; /* Ajustement mobile */
+            }
+          
             .aide-content h2 {
                 font-size: 1.5rem;
             }
-            
+          
             .aide-list li {
                 font-size: 0.9rem;
                 padding-left: 20px;
             }
-            
+
+            .aide-image img {
+                max-height: 350px; /* Ajustement mobile */
+            }
+          
             .recommandations-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
-            
+          
             .recommandation-content {
                 padding: 15px;
             }
-            
+          
             .recommandation-nom {
                 font-size: 1.2rem;
             }
-            
+
+            .recommandation-image img {
+                max-height: 250px; /* Ajustement mobile */
+            }
+          
             .pourquoi-grid {
                 grid-template-columns: 1fr 1fr;
                 gap: 10px;
             }
-            
+          
             .pourquoi-item {
                 padding: 12px;
             }
-            
+          
             .pourquoi-item .icon {
                 font-size: 1.8rem;
             }
-            
+          
             .resultats-container {
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
-            
+
+            .resultat-img img {
+                max-height: 300px; /* Ajustement mobile */
+            }
+          
             .avis-container {
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
-            
+          
             .commande-container {
                 padding: 20px;
             }
-            
+          
             .produit-select {
                 grid-template-columns: 1fr;
                 gap: 8px;
             }
-            
+          
             .quantite-container {
                 width: 100%;
             }
-            
+          
             .quantite-input {
                 width: 100%;
             }
-            
+          
             .form-group label img {
                 width: 18px;
                 height: 18px;
             }
-            
+          
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 25px;
             }
-            
+          
             .whatsapp-btn {
                 width: 50px;
                 height: 50px;
@@ -1579,55 +1612,59 @@
                 right: 15px;
             }
         }
-        
+      
         @media (max-width: 480px) {
             .hero h1 {
                 font-size: 1.6rem;
             }
-            
+          
             .section-titre {
                 font-size: 1.4rem;
             }
-            
+          
             .produits-header h2 {
                 font-size: 1.6rem;
             }
-            
+          
             .recommandations-header h2 {
                 font-size: 1.5rem;
             }
-            
+          
             .pourquoi-grid {
                 grid-template-columns: 1fr;
             }
-            
+          
             .causes-image img {
                 max-height: 300px;
             }
-            
+          
             .aide-image img {
                 max-height: 300px;
             }
+
+            .gamme-image {
+                height: 200px; /* Petit écran */
+            }
         }
-        
+      
         @media (min-width: 769px) and (max-width: 992px) {
             .hero h1 {
                 font-size: 2.2rem;
             }
-            
+          
             .section-titre {
                 font-size: 1.8rem;
             }
-            
+          
             .gamme-container {
                 grid-template-columns: 1fr;
                 max-width: 500px;
             }
-            
+          
             .produits-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+          
             .recommandations-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -1659,7 +1696,7 @@
             </ul>
         </nav>
     </header>
-    
+  
     <!-- Section Hero -->
     <section class="hero" id="hero">
         <div class="hero-content">
@@ -1672,7 +1709,7 @@
             <img src="images/kidchamp.jpg" alt="Soins capillaires SAHBEL">
         </div>
     </section>
-    
+  
     <!-- Section Gamme -->
     <section class="gamme" id="gamme">
         <div class="container">
@@ -1693,7 +1730,7 @@
             </div>
         </div>
     </section>
-    
+  
     <!-- Section Valeurs -->
     <section class="valeurs" id="valeurs">
         <div class="container">
@@ -1722,7 +1759,7 @@
             </div>
         </div>
     </section>
-    
+  
     <!-- Section Produits -->
     <section class="produits" id="produits">
         <div class="container">
@@ -1730,7 +1767,7 @@
                 <h2>Découvrez Nos Soins Naturels</h2>
                 <p>Une collection conçue pour nourrir et sublimer vos cheveux.</p>
             </div>
-            
+          
             <div class="produits-grid">
                 <!-- Produit 1 - Huile de croissance 4 oz -->
                 <div class="produit-card">
@@ -1747,7 +1784,7 @@
                         </a>
                     </div>
                 </div>
-                
+              
                 <!-- Produit 2 - Huile de croissance 2 oz -->
                 <div class="produit-card">
                     <div class="produit-image">
@@ -1763,7 +1800,7 @@
                         </a>
                     </div>
                 </div>
-                
+              
                 <!-- Produit 3 - Lotion capillaire en spray -->
                 <div class="produit-card">
                     <div class="produit-image">
@@ -1779,7 +1816,7 @@
                         </a>
                     </div>
                 </div>
-                
+              
                 <!-- Produit 4 - Crème coiffante -->
                 <div class="produit-card">
                     <div class="produit-image">
@@ -1795,7 +1832,7 @@
                         </a>
                     </div>
                 </div>
-                
+              
                 <!-- Produit 5 - Sérum -->
                 <div class="produit-card">
                     <div class="produit-image">
@@ -1811,7 +1848,7 @@
                         </a>
                     </div>
                 </div>
-                
+              
                 <!-- Produit 6 - Pommade capillaire -->
                 <div class="produit-card">
                     <div class="produit-image">
@@ -1827,7 +1864,7 @@
                         </a>
                     </div>
                 </div>
-                
+              
                 <!-- Produit 7 - Huile de gombo -->
                 <div class="produit-card">
                     <div class="produit-image">
@@ -1843,7 +1880,7 @@
                         </a>
                     </div>
                 </div>
-                
+              
                 <!-- Produit 8 - Shampooing + Après-shampooing -->
                 <div class="produit-card">
                     <div class="produit-image">
@@ -1862,7 +1899,7 @@
             </div>
         </div>
     </section>
-    
+  
     <!-- Section Causes -->
     <section class="causes" id="causes">
         <div class="container">
@@ -1873,7 +1910,7 @@
                 <div class="causes-content">
                     <h2>❗ Pourquoi mes cheveux tombent ou arrêtent de pousser ?</h2>
                     <p class="causes-intro">La chute des cheveux et l'alopécie peuvent avoir plusieurs causes, souvent combinées :</p>
-                    
+                  
                     <div class="causes-list">
                         <ul>
                             <li>Anémie (manque de fer)</li>
@@ -1889,7 +1926,7 @@
                             <li>Mauvaise circulation sanguine au niveau du cuir chevelu</li>
                         </ul>
                     </div>
-                    
+                  
                     <div class="causes-conclusion">
                         <p>👉 Résultat : cheveux cassants, zones clairsemées, pousse lente ou arrêtée.</p>
                     </div>
@@ -1897,7 +1934,7 @@
             </div>
         </div>
     </section>
-    
+  
     <!-- Section Aide -->
     <section class="aide" id="aide">
         <div class="container">
@@ -1905,11 +1942,11 @@
                 <div class="aide-image">
                     <img src="images/sante.jpg" alt="SAHBEL peut vous aider">
                 </div>
-                
+              
                 <div class="aide-content">
                     <h2>🌿 Est-ce que SAHBEL peut m'aider ?</h2>
                     <p class="aide-intro">Oui, SAHBEL agit directement à la racine du problème. Nos produits sont conçus pour réactiver la pousse, renforcer les racines et restaurer un cuir chevelu sain, sans agresser les cheveux.</p>
-                    
+                  
                     <div class="aide-details">
                         <h3>✨ Pourquoi SAHBEL est efficace ?</h3>
                         <div class="aide-list">
@@ -1923,11 +1960,11 @@
                             </ul>
                         </div>
                     </div>
-                    
+                  
                     <div class="aide-conclusion">
                         <p>👉 SAHBEL ne masque pas le problème, il traite la cause.</p>
                     </div>
-                    
+                  
                     <div class="aide-resultats">
                         <h3>💚 Résultat attendu</h3>
                         <p>Avec une application régulière :</p>
@@ -1943,7 +1980,7 @@
             </div>
         </div>
     </section>
-    
+  
     <!-- Section Recommandations -->
     <section class="recommandations" id="recommandations">
         <div class="container">
@@ -1951,7 +1988,7 @@
                 <h2>🌿 Recommandations SAHBEL selon vos besoins capillaires</h2>
                 <p>Choisissez la routine adaptée à vos objectifs capillaires pour des résultats optimaux.</p>
             </div>
-            
+          
             <div class="recommandations-grid">
                 <!-- Recommandation 1 -->
                 <div class="recommandation-card">
@@ -1963,16 +2000,16 @@
                             <span class="recommandation-numero">1</span>
                             <h3 class="recommandation-nom">Pousse + Hydratation</h3>
                         </div>
-                        
+                      
                         <div class="recommandation-produits">
                             Produits : Huile de croissance + Sérum + Lotion
                         </div>
-                        
+                      
                         <div class="recommandation-pourquoi">
                             <h4>Pourquoi cette combinaison ?</h4>
                             <p>La pousse des cheveux dépend d'un cuir chevelu sain, hydraté et bien nourri. Cette routine agit à la fois en profondeur (racines) et en surface (longueurs).</p>
                         </div>
-                        
+                      
                         <div class="recommandation-apporte">
                             <h4>Ce que ça apporte concrètement :</h4>
                             <ul>
@@ -1981,13 +2018,13 @@
                                 <li>La lotion capillaire SAHBEL hydrate le cuir chevelu, apporte volume, brillance et limite la casse.</li>
                             </ul>
                         </div>
-                        
+                      
                         <div class="recommandation-resultat">
                             <p>Résultat : Des cheveux plus forts, mieux hydratés, qui poussent plus vite et de façon visible.</p>
                         </div>
                     </div>
                 </div>
-                
+              
                 <!-- Recommandation 2 -->
                 <div class="recommandation-card">
                     <div class="recommandation-image">
@@ -1998,16 +2035,16 @@
                             <span class="recommandation-numero">2</span>
                             <h3 class="recommandation-nom">Objectif principal : Pousse des cheveux</h3>
                         </div>
-                        
+                      
                         <div class="recommandation-produits">
                             Produits : Huile de croissance + Sérum
                         </div>
-                        
+                      
                         <div class="recommandation-pourquoi">
                             <h4>Pourquoi cette combinaison ?</h4>
                             <p>Cette routine est idéale si ton objectif est uniquement la repousse, notamment en cas de chute, alopécie ou zones clairsemées.</p>
                         </div>
-                        
+                      
                         <div class="recommandation-apporte">
                             <h4>Ce que ça apporte concrètement :</h4>
                             <ul>
@@ -2015,13 +2052,13 @@
                                 <li>Le sérum agit comme un soin intensif ciblé pour réveiller les follicules dormants.</li>
                             </ul>
                         </div>
-                        
+                      
                         <div class="recommandation-resultat">
                             <p>Résultat : Une repousse progressive, plus dense, surtout sur les zones fragilisées.</p>
                         </div>
                     </div>
                 </div>
-                
+              
                 <!-- Recommandation 3 -->
                 <div class="recommandation-card">
                     <div class="recommandation-image">
@@ -2032,66 +2069,30 @@
                             <span class="recommandation-numero">3</span>
                             <h3 class="recommandation-nom">Hydratation & Souplesse</h3>
                         </div>
-                        
+                      
                         <div class="recommandation-produits">
                             Produits : Lotion + Crème coiffante
                         </div>
-                        
+                      
                         <div class="recommandation-pourquoi">
                             <h4>Pourquoi cette combinaison ?</h4>
                             <p>Les cheveux secs cassent facilement. Cette routine est conçue pour hydrater, protéger et faciliter le coiffage au quotidien.</p>
                         </div>
-                        
-                        <div class="recommandation-apporte {
-    margin-bottom: 10px;
-}
-
-.recommandation-apporte h4 {
-    font-size: 1.1rem;
-    color: #333;
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-
-.recommandation-apporte ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.recommandation-apporte li {
-    padding: 5px 0;
-    padding-left: 18px;
-    position: relative;
-    color: #555;
-    font-size: 0.9rem;
-    line-height: 1.4;
-}
-
-.recommandation-apporte li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--couleur-accent);
-    font-size: 1rem;
-}
-
-.recommandation-resultat {
-    margin-top: auto;
-    padding: 12px;
-    background-color: rgba(145, 110, 117, 0.05);
-    border-radius: 6px;
-    border-left: 2px solid var(--couleur-titre-principal);
-}
-
-.recommandation-resultat p {
-    color: #333;
-    font-weight: 500;
-    font-size: 0.9rem;
-    margin: 0;
-}
+                      
+                        <div class="recommandation-apporte">
+                            <h4>Ce que ça apporte concrètement :</h4>
+                            <ul>
+                                <li>La lotion capillaire SAHBEL hydrate quotidiennement et démêle sans effort.</li>
+                                <li>La crème coiffante définit les boucles, contrôle les frisottis et protège de la chaleur.</li>
+                            </ul>
+                        </div>
+                      
+                        <div class="recommandation-resultat">
+                            <p>Résultat : Des cheveux souples, hydratés et faciles à coiffer.</p>
+                        </div>
                     </div>
                 </div>
-                
+              
                 <!-- Recommandation 4 -->
                 <div class="recommandation-card">
                     <div class="recommandation-image">
@@ -2102,16 +2103,16 @@
                             <span class="recommandation-numero">4</span>
                             <h3 class="recommandation-nom">Sceller l'hydratation + Lavage efficace + Boucles définies</h3>
                         </div>
-                        
+                      
                         <div class="recommandation-produits">
                             Produits : Huile gombo + Pommade + Shampooing & Conditionneur
                         </div>
-                        
+                      
                         <div class="recommandation-pourquoi">
                             <h4>Pourquoi cette combinaison ?</h4>
                             <p>Après le lavage, il est essentiel de nourrir, réparer et sceller l'hydratation pour éviter la sécheresse et la casse.</p>
                         </div>
-                        
+                      
                         <div class="recommandation-apporte">
                             <h4>Ce que ça apporte concrètement :</h4>
                             <ul>
@@ -2121,14 +2122,14 @@
                                 <li>L'huile de gombo définit les boucles, apporte brillance, douceur et souplesse naturelle.</li>
                             </ul>
                         </div>
-                        
+                      
                         <div class="recommandation-resultat">
                             <p>Résultat : Des cheveux propres, bien hydratés, des boucles définies et une hydratation durable.</p>
                         </div>
                     </div>
                 </div>
             </div>
-            
+          
             <div class="pourquoi-sahbel">
                 <h3>✨ Pourquoi choisir SAHBEL ?</h3>
                 <div class="pourquoi-grid">
@@ -2152,7 +2153,7 @@
             </div>
         </div>
     </section>
-    
+  
     <!-- Section Résultats -->
     <section class="resultats" id="resultats">
         <div class="container">
@@ -2195,7 +2196,7 @@
             </div>
         </div>
     </section>
-    
+  
     <!-- Section Avis -->
     <section class="avis" id="avis">
         <div class="container">
@@ -2219,13 +2220,13 @@
             </div>
         </div>
     </section>
-    
+  
     <!-- Section Commander -->
     <section class="commande-section" id="commande">
         <div class="container">
             <div class="commande-container">
                 <h2 class="section-titre">Commander maintenant</h2>
-                
+              
                 <div class="reduction-info">
                     <h3>Offre spéciale de réduction</h3>
                     <ul>
@@ -2235,7 +2236,7 @@
                         <li><strong>5 produits ou plus</strong> : $200 HT de réduction</li>
                     </ul>
                 </div>
-                
+              
                 <form class="commande-form" id="commandeForm">
                     <div class="form-group">
                         <label for="produit1">
@@ -2253,7 +2254,7 @@
                             </div>
                         </div>
                     </div>
-                    
+                  
                     <div class="form-group">
                         <label for="produit2">
                             <img src="images/lotion.jpg" alt="Lotion capillaire">
@@ -2269,7 +2270,7 @@
                             </div>
                         </div>
                     </div>
-                    
+                  
                     <div class="form-group">
                         <label for="produit3">
                             <img src="images/creme.jpg" alt="Crème coiffante">
@@ -2285,7 +2286,7 @@
                             </div>
                         </div>
                     </div>
-                    
+                  
                     <div class="form-group">
                         <label for="produit4">
                             <img src="images/shampoo.jpg" alt="Shampoo & Conditionneur">
@@ -2301,7 +2302,7 @@
                             </div>
                         </div>
                     </div>
-                    
+                  
                     <div class="form-group">
                         <label for="produit5">
                             <img src="images/gombo.jpg" alt="Huile de Gombo">
@@ -2317,7 +2318,7 @@
                             </div>
                         </div>
                     </div>
-                    
+                  
                     <div class="form-group">
                         <label for="produit6">
                             <img src="images/pommade.jpg" alt="Pommade capillaire">
@@ -2333,12 +2334,12 @@
                             </div>
                         </div>
                     </div>
-                    
+                  
                     <div class="form-group">
                         <label for="prenom">Votre prénom</label>
                         <input type="text" id="prenom" placeholder="Ex: Sandra" required>
                     </div>
-                    
+                  
                     <button type="submit" class="btn">
                         Commander sur WhatsApp <i class="fab fa-whatsapp"></i>
                     </button>
@@ -2346,7 +2347,7 @@
             </div>
         </div>
     </section>
-    
+  
     <!-- Footer / Contact -->
     <footer id="contact">
         <div class="footer-content">
@@ -2380,31 +2381,31 @@
         </div>
         <p class="copyright">© 2023 SAHBEL. Tous droits réservés.</p>
     </footer>
-    
+  
     <!-- Bouton WhatsApp flottant -->
     <a href="https://wa.me/50947359294" class="whatsapp-btn" target="_blank" aria-label="Contactez-nous sur WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
-    
+  
     <script>
         // Menu mobile
         const menuToggle = document.getElementById('menuToggle');
         const navMenu = document.getElementById('navMenu');
-        
+      
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
         });
-        
+      
         // Fermer le menu en cliquant en dehors
         document.addEventListener('click', (e) => {
             if (!navMenu.contains(e.target) && !menuToggle.contains(e.target) && navMenu.classList.contains('active')) {
                 navMenu.classList.remove('active');
             }
         });
-        
+      
         // Gestion du formulaire de commande
         const commandeForm = document.getElementById('commandeForm');
-        
+      
         // Prix des produits
         const prixProduits = {
             "huile_4oz": 400,
@@ -2415,7 +2416,7 @@
             "gombo": 400,
             "pommade": 300
         };
-        
+      
         // Calcul des réductions
         function calculerReduction(totalProduits) {
             if (totalProduits >= 5) return 200;
@@ -2424,16 +2425,16 @@
             if (totalProduits >= 2) return 50;
             return 0;
         }
-        
+      
         commandeForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
+          
             const prenom = document.getElementById('prenom').value;
             let message = `Bonjour SAHBEL, je souhaite commander :%0A%0A`;
             let produitsSelectionnes = false;
             let totalSansReduction = 0;
             let totalProduits = 0;
-            
+          
             // Liste des produits
             const produits = [
                 { id: 'produit1', qteId: 'qte1', nom: "Huile de croissance" },
@@ -2443,28 +2444,28 @@
                 { id: 'produit5', qteId: 'qte5', nom: "Huile de Gombo" },
                 { id: 'produit6', qteId: 'qte6', nom: "Pommade capillaire" }
             ];
-            
+          
             // Vérifier chaque produit
             produits.forEach(produit => {
                 const select = document.getElementById(produit.id);
                 const qteInput = document.getElementById(produit.qteId);
                 const qte = parseInt(qteInput.value);
-                
+              
                 if (select.value && qte > 0) {
                     produitsSelectionnes = true;
-                    
+                  
                     // Récupérer la variante si nécessaire
                     let variante = "";
                     let prixUnitaire = prixProduits[select.value];
-                    
+                  
                     if (select.value === "huile_4oz") variante = "4oz";
                     if (select.value === "huile_2oz") variante = "2oz";
-                    
+                  
                     // Calculer le sous-total pour ce produit
                     const sousTotal = prixUnitaire * qte;
                     totalSansReduction += sousTotal;
                     totalProduits += qte;
-                    
+                  
                     // Ajouter au message
                     if (variante) {
                         message += `- ${qte} x ${produit.nom} ${variante} : ${sousTotal} HTG%0A`;
@@ -2473,35 +2474,35 @@
                     }
                 }
             });
-            
+          
             // Si au moins un produit est sélectionné
             if (produitsSelectionnes) {
                 // Calculer la réduction
                 const reduction = calculerReduction(totalProduits);
                 const totalAPayer = totalSansReduction - reduction;
-                
+              
                 // Ajouter les détails de prix au message
                 message += `%0ATotal sans réduction: ${totalSansReduction} HTG%0A`;
                 message += `Réduction: ${reduction} HTG%0A`;
                 message += `Total à payer: ${totalAPayer} HTG%0A`;
-                
+              
                 // Ajouter le prénom
                 message += `%0APrénom : ${prenom}`;
-                
+              
                 // Rediriger vers WhatsApp
                 window.open(`https://wa.me/50947359294?text=${message}`, '_blank');
             } else {
                 alert("Veuillez sélectionner au moins un produit.");
             }
         });
-        
+      
         // Animation au défilement
         const observerOptions = {
             root: null,
             rootMargin: '0px',
             threshold: 0.1
         };
-        
+      
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -2509,20 +2510,20 @@
                 }
             });
         }, observerOptions);
-        
+      
         // Observer les cartes pour l'animation
         document.querySelectorAll('.valeur-card, .produit-card, .avis-card, .resultat-card, .causes-card, .aide-container, .recommandation-card, .pourquoi-item').forEach(card => {
             observer.observe(card);
         });
-        
+      
         // Boutons commander des cartes produits
         document.querySelectorAll('.produit-btn').forEach(btn => {
             btn.addEventListener('click', function(e) {
                 if (this.getAttribute('href') === '#commande') {
                     e.preventDefault();
                     // Faire défiler jusqu'à la section commande
-                    document.getElementById('commande').scrollIntoView({ 
-                        behavior: 'smooth' 
+                    document.getElementById('commande').scrollIntoView({
+                        behavior: 'smooth'
                     });
                 }
             });
@@ -2530,3 +2531,4 @@
     </script>
 </body>
 </html>
+```
