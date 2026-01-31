@@ -212,7 +212,189 @@
             color: var(--couleur-primaire);
             transform: rotate(90deg);
         }
-        
+        /* ============================================
+   VIDÉO D'ACCUEIL - STYLE SIMPLE ET PROPRE
+============================================ */
+
+.video-accueil {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Plein écran */
+    min-height: 600px;
+    margin-top: 80px; /* Compensation header fixe */
+    overflow: hidden;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Vidéo de fond - 16:9 adapté mobile */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Remplit le conteneur */
+    object-position: center;
+    z-index: 1;
+    display: block;
+}
+
+/* Overlay simple pour lisibilité */
+.video-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(216, 165, 181, 0.3) 25%,
+        rgba(200, 169, 126, 0.2) 50%,
+        rgba(0, 0, 0, 0.15) 100%
+    );
+    z-index: 2;
+}
+
+/* Conteneur slogan */
+.video-slogan-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    padding: 20px;
+}
+
+/* Boîte slogan */
+.slogan-box {
+    max-width: 900px;
+    padding: 40px;
+    text-align: center;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+/* Texte slogan */
+.slogan-titre {
+    font-family: var(--typo-titre);
+    color: white;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.slogan-ligne1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.slogan-ligne2 {
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--couleur-fond);
+}
+
+.slogan-titre .accent {
+    color: var(--couleur-accent);
+    font-weight: 800;
+}
+
+/* ============================================
+   RESPONSIVE SIMPLE
+============================================ */
+
+@media (max-width: 1200px) {
+    .slogan-ligne1 {
+        font-size: 2.8rem;
+    }
+    .slogan-ligne2 {
+        font-size: 2.6rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .video-accueil {
+        height: 85vh;
+        min-height: 500px;
+    }
+    
+    .slogan-ligne1 {
+        font-size: 2.4rem;
+    }
+    .slogan-ligne2 {
+        font-size: 2.2rem;
+    }
+    
+    .slogan-box {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-accueil {
+        height: 80vh;
+        min-height: 450px;
+        margin-top: 70px;
+    }
+    
+    .slogan-ligne1 {
+        font-size: 2rem;
+    }
+    .slogan-ligne2 {
+        font-size: 1.8rem;
+    }
+    
+    .slogan-box {
+        padding: 25px;
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 576px) {
+    .video-accueil {
+        height: 75vh;
+        min-height: 400px;
+    }
+    
+    .slogan-ligne1 {
+        font-size: 1.7rem;
+    }
+    .slogan-ligne2 {
+        font-size: 1.5rem;
+    }
+    
+    .slogan-box {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .video-accueil {
+        height: 70vh;
+        min-height: 350px;
+        margin-top: 60px;
+    }
+    
+    .slogan-ligne1 {
+        font-size: 1.5rem;
+    }
+    .slogan-ligne2 {
+        font-size: 1.3rem;
+    }
+}
         /* ============================================
            SECTION HERO LUXE
         ============================================ */
@@ -2133,7 +2315,29 @@
             </ul>
         </nav>
     </header>
-    
+        <!-- ============================================
+         VIDÉO D'ACCUEIL SIMPLE ET EFFICACE
+    ============================================ -->
+    <section class="video-accueil" id="video-accueil">
+        <div class="video-container">
+            <!-- Vidéo avec fallback simple -->
+            <video autoplay muted loop playsinline class="video-background">
+                <source src="videos/sitevideo.mp4" type="video/mp4">
+                <source src="videos/sitevideo.webm" type="video/webm">
+                Votre navigateur ne supporte pas la vidéo.
+            </video>
+            
+            <!-- Slogan simple centré -->
+            <div class="video-slogan-container">
+                <div class="slogan-box">
+                    <h1 class="slogan-titre">
+                        <span class="slogan-ligne1">SAH<span class="accent">BEL</span> ne masque pas le problème,</span>
+                        <span class="slogan-ligne2">il traite la cause.</span>
+                    </h1>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Section Hero -->
     <section class="hero" id="hero">
         <div class="hero-content">
@@ -2914,6 +3118,58 @@
             // Ouvrir WhatsApp
             window.open(`https://wa.me/50947359294?text=${message}`, '_blank');
         });
+    // ============================================
+// GESTION VIDÉO SIMPLIFIÉE
+// ============================================
+
+function initVideoSimple() {
+    const video = document.querySelector('.video-background');
+    if (!video) return;
+    
+    // Configuration basique
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
+    
+    // Essayer de démarrer
+    const playVideo = () => {
+        const promise = video.play();
+        if (promise !== undefined) {
+            promise.catch(error => {
+                console.log("Vidéo en attente d'interaction");
+                // Démarrer au premier clic/scroll
+                document.addEventListener('click', () => video.play(), { once: true });
+                document.addEventListener('scroll', () => video.play(), { once: true });
+            });
+        }
+    };
+    
+    // Démarrer après chargement
+    if (video.readyState >= 3) {
+        playVideo();
+    } else {
+        video.addEventListener('loadeddata', playVideo);
+    }
+    
+    // Gestion d'erreur
+    video.addEventListener('error', function() {
+        console.log("Vidéo non trouvée");
+        // Optionnel: afficher une image de remplacement
+        const container = document.querySelector('.video-container');
+        if (container) {
+            container.innerHTML = `
+                <div style="width:100%;height:100%;background:linear-gradient(135deg, var(--couleur-primaire), var(--couleur-accent));display:flex;align-items:center;justify-content:center;">
+                    <div style="text-align:center;color:white;padding:20px;">
+                        <h2 style="font-size:2rem;margin-bottom:10px;">SAHBEL</h2>
+                        <p style="font-size:1.2rem;">Soins capillaires 100% naturels</p>
+                    </div>
+                </div>
+            `;
+        }
+    });
+}
+
+// Initialiser au chargement
+document.addEventListener('DOMContentLoaded', initVideoSimple);
     </script>
 </body>
 </html>
