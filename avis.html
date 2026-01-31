@@ -216,183 +216,106 @@
    VIDÉO D'ACCUEIL - STYLE SIMPLE ET PROPRE
 ============================================ */
 
+/* ============================================
+   TRANSFORMATION INTELLIGENTE 16:9 → 3:4
+============================================ */
+
 .video-accueil {
     position: relative;
     width: 100%;
-    height: 100vh; /* Plein écran */
-    min-height: 600px;
-    margin-top: 80px; /* Compensation header fixe */
+    margin-top: 80px;
     overflow: hidden;
+    
+    /* Desktop : hauteur 100vh */
+    height: 100vh;
+    min-height: 600px;
 }
 
 .video-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-/* Vidéo de fond - 16:9 adapté mobile */
-.video-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Remplit le conteneur */
-    object-position: center;
-    z-index: 1;
+}
+
+/* Vidéo 16:9 qui s'adapte */
+.video-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
     display: block;
 }
 
-/* Overlay simple pour lisibilité */
-.video-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.2) 0%,
-        rgba(216, 165, 181, 0.3) 25%,
-        rgba(200, 169, 126, 0.2) 50%,
-        rgba(0, 0, 0, 0.15) 100%
-    );
-    z-index: 2;
-}
-
-/* Conteneur slogan */
-.video-slogan-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 3;
-    padding: 20px;
-}
-
-/* Boîte slogan */
-.slogan-box {
-    max-width: 900px;
-    padding: 40px;
-    text-align: center;
-    animation: fadeInUp 1.2s ease-out;
-}
-
-/* Texte slogan */
-.slogan-titre {
-    font-family: var(--typo-titre);
-    color: white;
-    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    line-height: 1.2;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.slogan-ligne1 {
-    font-size: 3.2rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-}
-
-.slogan-ligne2 {
-    font-size: 3rem;
-    font-weight: 600;
-    color: var(--couleur-fond);
-}
-
-.slogan-titre .accent {
-    color: var(--couleur-accent);
-    font-weight: 800;
-}
-
 /* ============================================
-   RESPONSIVE SIMPLE
+   SUR MOBILE : TRANSFORMATION EN 3:4
 ============================================ */
-
-@media (max-width: 1200px) {
-    .slogan-ligne1 {
-        font-size: 2.8rem;
-    }
-    .slogan-ligne2 {
-        font-size: 2.6rem;
-    }
-}
-
-@media (max-width: 992px) {
-    .video-accueil {
-        height: 85vh;
-        min-height: 500px;
-    }
-    
-    .slogan-ligne1 {
-        font-size: 2.4rem;
-    }
-    .slogan-ligne2 {
-        font-size: 2.2rem;
-    }
-    
-    .slogan-box {
-        padding: 30px;
-    }
-}
 
 @media (max-width: 768px) {
     .video-accueil {
-        height: 80vh;
-        min-height: 450px;
+        /* Conteneur 3:4 sur mobile */
+        height: 0;
+        padding-top: 133.33%; /* Ratio 3:4 (4/3 = 1.3333) */
+        
+        /* Ajuster la marge pour le header */
         margin-top: 70px;
+        min-height: 0;
     }
     
-    .slogan-ligne1 {
-        font-size: 2rem;
-    }
-    .slogan-ligne2 {
-        font-size: 1.8rem;
+    .video-container {
+        /* Prend tout l'espace du conteneur 3:4 */
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
     }
     
-    .slogan-box {
-        padding: 25px;
-        max-width: 95%;
+    .video-background {
+        /* La vidéo 16:9 va remplir le conteneur 3:4 */
+        /* Elle sera légèrement rognée en haut et en bas */
+        object-fit: cover;
+        
+        /* Ajustez cette valeur selon votre vidéo */
+        /* 50% = centre, 40% = plus haut, 60% = plus bas */
+        object-position: center 50%;
+    }
+    
+    /* Overlay pour masquer les bords coupés si nécessaire */
+    .video-container::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.1) 0%,
+            transparent 10%,
+            transparent 90%,
+            rgba(0, 0, 0, 0.1) 100%
+        );
+        pointer-events: none;
     }
 }
 
-@media (max-width: 576px) {
+/* ============================================
+   Ajustements pour orientation paysage mobile
+============================================ */
+
+@media (max-width: 768px) and (orientation: landscape) {
     .video-accueil {
-        height: 75vh;
+        /* En paysage, on garde le 16:9 */
+        height: 70vh;
+        padding-top: 0;
         min-height: 400px;
     }
     
-    .slogan-ligne1 {
-        font-size: 1.7rem;
-    }
-    .slogan-ligne2 {
-        font-size: 1.5rem;
-    }
-    
-    .slogan-box {
-        padding: 20px;
-    }
-}
-
-@media (max-width: 400px) {
-    .video-accueil {
-        height: 70vh;
-        min-height: 350px;
-        margin-top: 60px;
-    }
-    
-    .slogan-ligne1 {
-        font-size: 1.5rem;
-    }
-    .slogan-ligne2 {
-        font-size: 1.3rem;
+    .video-background {
+        object-fit: cover;
+        object-position: center center;
     }
 }
         /* ============================================
@@ -2319,25 +2242,22 @@
          VIDÉO D'ACCUEIL SIMPLE ET EFFICACE
     ============================================ -->
     <section class="video-accueil" id="video-accueil">
-        <div class="video-container">
-            <!-- Vidéo avec fallback simple -->
-            <video autoplay muted loop playsinline class="video-background">
-                <source src="videos/sitevideo.mp4" type="video/mp4">
-                <source src="videos/sitevideo.webm" type="video/webm">
-                Votre navigateur ne supporte pas la vidéo.
-            </video>
-            
-            <!-- Slogan simple centré -->
-            <div class="video-slogan-container">
-                <div class="slogan-box">
-                    <h1 class="slogan-titre">
-                        <span class="slogan-ligne1">SAH<span class="accent">BEL</span> ne masque pas le problème,</span>
-                        <span class="slogan-ligne2">il traite la cause.</span>
-                    </h1>
-                </div>
+    <div class="video-container">
+        <video autoplay muted loop playsinline class="video-background">
+            <source src="videos/sitevideo.mp4" type="video/mp4">
+            <source src="videos/sitevideo.webm" type="video/webm">
+        </video>
+        
+        <div class="video-slogan-container">
+            <div class="slogan-box">
+                <h1 class="slogan-titre">
+                    <span class="slogan-ligne1">SAH<span class="accent">BEL</span> ne masque pas le problème,</span>
+                    <span class="slogan-ligne2">il traite la cause.</span>
+                </h1>
             </div>
         </div>
-    </section>
+    </div>
+</section>
     <!-- Section Hero -->
     <section class="hero" id="hero">
         <div class="hero-content">
@@ -3170,6 +3090,41 @@ function initVideoSimple() {
 
 // Initialiser au chargement
 document.addEventListener('DOMContentLoaded', initVideoSimple);
+// Ajustement automatique de la position vidéo
+function adjustVideoForMobile() {
+    const video = document.querySelector('.video-background');
+    if (!video) return;
+    
+    const isMobile = window.innerWidth <= 768;
+    const isPortrait = window.innerHeight > window.innerWidth;
+    
+    if (isMobile && isPortrait) {
+        // Mode mobile portrait - ajustez la valeur selon votre vidéo
+        // Testez: 40% (haut), 50% (centre), 60% (bas)
+        video.style.objectPosition = 'center 50%';
+        
+        // Force le recalcul
+        video.style.display = 'none';
+        video.offsetHeight; // Trigger reflow
+        video.style.display = 'block';
+    } else {
+        // Desktop ou mobile paysage
+        video.style.objectPosition = 'center center';
+    }
+}
+
+// Initialisation
+document.addEventListener('DOMContentLoaded', adjustVideoForMobile);
+window.addEventListener('resize', adjustVideoForMobile);
+window.addEventListener('orientationchange', function() {
+    setTimeout(adjustVideoForMobile, 300);
+});
+
+// Quand la vidéo est chargée
+const video = document.querySelector('.video-background');
+if (video) {
+    video.addEventListener('loadeddata', adjustVideoForMobile);
+}
     </script>
 </body>
 </html>
