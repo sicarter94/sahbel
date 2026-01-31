@@ -212,23 +212,16 @@
             color: var(--couleur-primaire);
             transform: rotate(90deg);
         }
-        /* ============================================
-   VIDÉO D'ACCUEIL - STYLE SIMPLE ET PROPRE
-============================================ */
-
+        
 /* ============================================
-   TRANSFORMATION INTELLIGENTE 16:9 → 3:4
+   SECTION VIDEO EN TÊTE
 ============================================ */
-
-.video-accueil {
+.video-header {
     position: relative;
     width: 100%;
-    margin-top: 80px;
-    overflow: hidden;
-    
-    /* Desktop : hauteur 100vh */
     height: 100vh;
-    min-height: 600px;
+    overflow: hidden;
+    margin-top: 80px; /* Pour compenser le header fixe */
 }
 
 .video-container {
@@ -237,87 +230,195 @@
     left: 0;
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Vidéo 16:9 qui s'adapte */
-.video-background {
+.hero-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center center;
-    display: block;
+    object-position: center;
 }
 
-/* ============================================
-   SUR MOBILE : TRANSFORMATION EN 3:4
-============================================ */
+/* Overlay sur la vidéo */
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(216, 165, 181, 0.3) 0%,
+        rgba(200, 169, 126, 0.2) 30%,
+        rgba(140, 123, 109, 0.1) 70%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.video-content {
+    max-width: 800px;
+    padding: 40px;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+/* Slogan sur la vidéo */
+.video-slogan {
+    font-family: var(--typo-titre);
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px;
+    line-height: 1.2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.video-slogan-text {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.video-slogan-subtext {
+    font-weight: 600;
+    font-size: 3rem;
+    color: var(--couleur-fond);
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+}
+
+.video-slogan .accent {
+    color: var(--couleur-accent);
+    font-weight: 800;
+}
+
+/* Indicateur de défilement */
+.video-scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    animation: bounce 2s infinite;
+    cursor: pointer;
+    transition: var(--transition-douce);
+}
+
+.video-scroll-indicator:hover {
+    transform: translateX(-50%) translateY(5px);
+    color: var(--couleur-accent);
+}
+
+.video-scroll-indicator i {
+    font-size: 1.5rem;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-5px);
+    }
+}
+
+/* Responsive pour la vidéo */
+@media (max-width: 1200px) {
+    .video-slogan {
+        font-size: 3rem;
+    }
+    
+    .video-slogan-subtext {
+        font-size: 2.6rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .video-header {
+        height: 80vh;
+        margin-top: 70px;
+    }
+    
+    .video-slogan {
+        font-size: 2.5rem;
+    }
+    
+    .video-slogan-subtext {
+        font-size: 2.2rem;
+    }
+    
+    .video-content {
+        padding: 30px;
+    }
+}
 
 @media (max-width: 768px) {
-    .video-accueil {
-        /* Conteneur 3:4 sur mobile */
-        height: 0;
-        padding-top: 133.33%; /* Ratio 3:4 (4/3 = 1.3333) */
-        
-        /* Ajuster la marge pour le header */
-        margin-top: 70px;
-        min-height: 0;
-    }
-    
-    .video-container {
-        /* Prend tout l'espace du conteneur 3:4 */
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
-    
-    .video-background {
-        /* La vidéo 16:9 va remplir le conteneur 3:4 */
-        /* Elle sera légèrement rognée en haut et en bas */
-        object-fit: cover;
-        
-        /* Ajustez cette valeur selon votre vidéo */
-        /* 50% = centre, 40% = plus haut, 60% = plus bas */
-        object-position: center 50%;
-    }
-    
-    /* Overlay pour masquer les bords coupés si nécessaire */
-    .video-container::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.1) 0%,
-            transparent 10%,
-            transparent 90%,
-            rgba(0, 0, 0, 0.1) 100%
-        );
-        pointer-events: none;
-    }
-}
-
-/* ============================================
-   Ajustements pour orientation paysage mobile
-============================================ */
-
-@media (max-width: 768px) and (orientation: landscape) {
-    .video-accueil {
-        /* En paysage, on garde le 16:9 */
+    .video-header {
         height: 70vh;
-        padding-top: 0;
-        min-height: 400px;
     }
     
-    .video-background {
-        object-fit: cover;
-        object-position: center center;
+    .video-slogan {
+        font-size: 2rem;
+    }
+    
+    .video-slogan-subtext {
+        font-size: 1.8rem;
+    }
+    
+    .video-content {
+        padding: 20px;
+    }
+    
+    .video-scroll-indicator {
+        bottom: 30px;
+        font-size: 0.9rem;
     }
 }
+
+@media (max-width: 480px) {
+    .video-header {
+        height: 60vh;
+        margin-top: 60px;
+    }
+    
+    .video-slogan {
+        font-size: 1.6rem;
+    }
+    
+    .video-slogan-subtext {
+        font-size: 1.4rem;
+    }
+    
+    .video-overlay {
+        padding: 15px;
+    }
+    
+    .video-scroll-indicator {
+        bottom: 20px;
+    }
+}
+
+/* Adaptation de la section Hero existante pour s'afficher après la vidéo */
+.hero {
+    min-height: 90vh; /* Réduit un peu car vidéo déjà en tête */
+}
+
         /* ============================================
            SECTION HERO LUXE
         ============================================ */
@@ -2238,22 +2339,28 @@
             </ul>
         </nav>
     </header>
-        <!-- ============================================
-         VIDÉO D'ACCUEIL SIMPLE ET EFFICACE
-    ============================================ -->
-    <section class="video-accueil" id="video-accueil">
+    <!-- Nouvelle Section Vidéo en tête -->
+<section class="video-header">
     <div class="video-container">
-        <video autoplay muted loop playsinline class="video-background">
+        <!-- Vidéo en deux formats pour compatibilité -->
+        <video autoplay muted loop playsinline class="hero-video">
             <source src="videos/sitevideo.mp4" type="video/mp4">
             <source src="videos/sitevideo.webm" type="video/webm">
+            <!-- Fallback image si la vidéo ne charge pas -->
+            <img src="images/kidchamp.webp" alt="Vidéo SAHBEL">
         </video>
         
-        <div class="video-slogan-container">
-            <div class="slogan-box">
-                <h1 class="slogan-titre">
-                    <span class="slogan-ligne1">SAH<span class="accent">BEL</span> ne masque pas le problème,</span>
-                    <span class="slogan-ligne2">il traite la cause.</span>
+        <!-- Overlay avec slogan -->
+        <div class="video-overlay">
+            <div class="video-content">
+                <h1 class="video-slogan">
+                    <span class="video-slogan-text">SAH<span class="accent">BEL</span> ne masque pas le problème,</span>
+                    <span class="video-slogan-subtext">il traite la cause.</span>
                 </h1>
+                <div class="video-scroll-indicator">
+                    <span>Découvrir</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
             </div>
         </div>
     </div>
@@ -3038,93 +3145,56 @@
             // Ouvrir WhatsApp
             window.open(`https://wa.me/50947359294?text=${message}`, '_blank');
         });
-    // ============================================
-// GESTION VIDÉO SIMPLIFIÉE
-// ============================================
+        // Ajoute ce code à la fin de ton <script> existant
 
-function initVideoSimple() {
-    const video = document.querySelector('.video-background');
-    if (!video) return;
-    
-    // Configuration basique
-    video.setAttribute('playsinline', '');
-    video.setAttribute('webkit-playsinline', '');
-    
-    // Essayer de démarrer
-    const playVideo = () => {
-        const promise = video.play();
-        if (promise !== undefined) {
-            promise.catch(error => {
-                console.log("Vidéo en attente d'interaction");
-                // Démarrer au premier clic/scroll
-                document.addEventListener('click', () => video.play(), { once: true });
-                document.addEventListener('scroll', () => video.play(), { once: true });
-            });
-        }
-    };
-    
-    // Démarrer après chargement
-    if (video.readyState >= 3) {
-        playVideo();
-    } else {
-        video.addEventListener('loadeddata', playVideo);
-    }
-    
-    // Gestion d'erreur
-    video.addEventListener('error', function() {
-        console.log("Vidéo non trouvée");
-        // Optionnel: afficher une image de remplacement
-        const container = document.querySelector('.video-container');
-        if (container) {
-            container.innerHTML = `
-                <div style="width:100%;height:100%;background:linear-gradient(135deg, var(--couleur-primaire), var(--couleur-accent));display:flex;align-items:center;justify-content:center;">
-                    <div style="text-align:center;color:white;padding:20px;">
-                        <h2 style="font-size:2rem;margin-bottom:10px;">SAHBEL</h2>
-                        <p style="font-size:1.2rem;">Soins capillaires 100% naturels</p>
-                    </div>
-                </div>
-            `;
-        }
+// Scroll vers la section Hero quand on clique sur l'indicateur
+const scrollIndicator = document.querySelector('.video-scroll-indicator');
+if (scrollIndicator) {
+    scrollIndicator.addEventListener('click', () => {
+        document.querySelector('.hero').scrollIntoView({ 
+            behavior: 'smooth' 
+        });
     });
 }
 
-// Initialiser au chargement
-document.addEventListener('DOMContentLoaded', initVideoSimple);
-// Ajustement automatique de la position vidéo
-function adjustVideoForMobile() {
-    const video = document.querySelector('.video-background');
-    if (!video) return;
+// Ajuster la marge du header pour la vidéo
+window.addEventListener('scroll', () => {
+    const header = document.querySelector('header');
+    const videoHeader = document.querySelector('.video-header');
     
-    const isMobile = window.innerWidth <= 768;
-    const isPortrait = window.innerHeight > window.innerWidth;
-    
-    if (isMobile && isPortrait) {
-        // Mode mobile portrait - ajustez la valeur selon votre vidéo
-        // Testez: 40% (haut), 50% (centre), 60% (bas)
-        video.style.objectPosition = 'center 50%';
+    if (videoHeader) {
+        const videoBottom = videoHeader.getBoundingClientRect().bottom;
         
-        // Force le recalcul
-        video.style.display = 'none';
-        video.offsetHeight; // Trigger reflow
-        video.style.display = 'block';
-    } else {
-        // Desktop ou mobile paysage
-        video.style.objectPosition = 'center center';
+        if (videoBottom <= 0) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
     }
-}
-
-// Initialisation
-document.addEventListener('DOMContentLoaded', adjustVideoForMobile);
-window.addEventListener('resize', adjustVideoForMobile);
-window.addEventListener('orientationchange', function() {
-    setTimeout(adjustVideoForMobile, 300);
 });
 
-// Quand la vidéo est chargée
-const video = document.querySelector('.video-background');
-if (video) {
-    video.addEventListener('loadeddata', adjustVideoForMobile);
-}
+// Pause/play vidéo au scroll pour la performance
+let videoPaused = false;
+const heroVideo = document.querySelector('.hero-video');
+
+window.addEventListener('scroll', () => {
+    if (heroVideo) {
+        const videoRect = heroVideo.getBoundingClientRect();
+        
+        // Si la vidéo n'est plus visible, on la pause pour économiser les ressources
+        if (videoRect.bottom < 0 || videoRect.top > window.innerHeight) {
+            if (!videoPaused) {
+                heroVideo.pause();
+                videoPaused = true;
+            }
+        } else {
+            if (videoPaused) {
+                heroVideo.play();
+                videoPaused = false;
+            }
+        }
+    }
+});
     </script>
 </body>
 </html>
