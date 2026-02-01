@@ -1549,16 +1549,16 @@
             margin-top: 15px;
         }
         
-        /* ============================================
-   SECTION GUIDE VISUEL
+/* ============================================
+   GUIDE IMAGES PLEINE LARGEUR
 ============================================ */
-.guide-visuel {
-    padding: 80px 0;
+.guide-fullwidth {
+    padding: 80px 0 0 0;
     background-color: var(--couleur-fond);
     position: relative;
 }
 
-.guide-visuel::before {
+.guide-fullwidth::before {
     content: "";
     position: absolute;
     top: 0;
@@ -1571,7 +1571,7 @@
         transparent);
 }
 
-.guide-intro {
+.guide-subtitle {
     text-align: center;
     max-width: 600px;
     margin: 0 auto 50px;
@@ -1580,117 +1580,182 @@
     line-height: 1.6;
 }
 
-/* Grille simple */
-.guide-grid-simple {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    margin: 0 auto;
+/* Conteneur images pleine largeur */
+.guide-fullwidth-images {
+    width: 100%;
 }
 
-/* Item guide */
-.guide-item {
-    background: white;
-    border-radius: var(--border-radius);
+/* Chaque item image */
+.guide-full-item {
+    width: 100%;
+    margin-bottom: 0;
+    position: relative;
+}
+
+/* Wrapper image avec effet */
+.image-wrapper {
+    width: 100%;
     overflow: hidden;
-    box-shadow: var(--ombre-legere);
-    transition: var(--transition-douce);
-    border: 1px solid var(--couleur-bordure);
+    position: relative;
 }
 
-.guide-item:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--ombre-hover);
-}
-
-/* Conteneur image */
-.guide-image-container {
-    padding: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, 
-        rgba(216, 165, 181, 0.05), 
-        rgba(200, 169, 126, 0.05));
-}
-
-.guide-img {
+/* Image pleine largeur */
+.guide-full-item img {
     width: 100%;
     height: auto;
-    max-height: 400px;
-    object-fit: contain;
-    border-radius: 8px;
-    transition: transform 0.6s ease;
+    display: block;
+    transition: transform 0.8s ease;
 }
 
-.guide-item:hover .guide-img {
-    transform: scale(1.05);
+/* Effet de zoom léger au survol */
+.image-wrapper::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+        rgba(0, 0, 0, 0.03) 0%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.03) 100%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-/* Légende */
-.guide-caption {
-    padding: 20px;
-    text-align: center;
-    font-family: var(--typo-sous-titre);
-    font-size: 1.4rem;
-    color: var(--couleur-secondaire);
-    font-weight: 600;
-    border-top: 1px solid var(--couleur-bordure);
-    background: white;
+.guide-full-item:hover img {
+    transform: scale(1.02);
+}
+
+.guide-full-item:hover .image-wrapper::after {
+    opacity: 1;
+}
+
+/* Effet de séparation entre les images */
+.guide-full-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    width: 90%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        var(--couleur-bordure), 
+        transparent);
+}
+
+.guide-full-item:last-child::after {
+    display: none;
 }
 
 /* ============================================
-   RESPONSIVE SIMPLE
+   RESPONSIVE PLEINE LARGEUR
 ============================================ */
-@media (max-width: 1200px) {
-    .guide-grid-simple {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 25px;
+
+/* Desktop : images centrées avec max-width */
+@media (min-width: 769px) {
+    .guide-full-item {
+        padding: 0 5%;
+    }
+    
+    .image-wrapper {
+        max-width: 1000px;
+        margin: 0 auto;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .guide-full-item img {
+        border-radius: 8px;
+    }
+    
+    .guide-full-item::after {
+        left: 10%;
+        width: 80%;
     }
 }
 
+/* Tablette : légère marge */
 @media (max-width: 768px) {
-    .guide-grid-simple {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
+    .guide-fullwidth {
+        padding: 60px 0 0 0;
     }
     
-    .guide-image-container {
-        padding: 20px;
-    }
-    
-    .guide-img {
-        max-height: 350px;
-    }
-    
-    .guide-caption {
-        padding: 15px;
-        font-size: 1.3rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .guide-grid-simple {
-        grid-template-columns: 1fr;
-        max-width: 500px;
-    }
-    
-    .guide-intro {
+    .guide-subtitle {
         font-size: 1rem;
         margin-bottom: 40px;
+        padding: 0 20px;
     }
     
-    .guide-image-container {
-        padding: 15px;
+    .guide-full-item {
+        padding: 0;
     }
     
-    .guide-img {
-        max-height: 300px;
+    .image-wrapper {
+        border-radius: 0;
     }
     
-    .guide-caption {
-        font-size: 1.2rem;
+    .guide-full-item img {
+        border-radius: 0;
+    }
+    
+    .guide-full-item::after {
+        left: 20px;
+        width: calc(100% - 40px);
+    }
+}
+
+/* Mobile : pleine largeur sans marge */
+@media (max-width: 480px) {
+    .guide-fullwidth {
+        padding: 50px 0 0 0;
+    }
+    
+    .section-titre {
+        padding: 0 15px;
+    }
+    
+    .guide-subtitle {
+        padding: 0 15px;
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+    
+    .guide-full-item {
+        margin-bottom: 0;
+    }
+    
+    .image-wrapper {
+        border-radius: 0;
+        box-shadow: none;
+    }
+    
+    .guide-full-item img {
+        border-radius: 0;
+    }
+    
+    .guide-full-item::after {
+        left: 15px;
+        width: calc(100% - 30px);
+    }
+}
+
+/* Très petit mobile */
+@media (max-width: 360px) {
+    .guide-fullwidth {
+        padding: 40px 0 0 0;
+    }
+    
+    .section-titre {
+        font-size: 1.8rem;
+    }
+    
+    .guide-subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 25px;
     }
 }
         
@@ -2959,68 +3024,62 @@
     </section>
     
     <!-- ============================================
-         SECTION GUIDE VISUEL DES PRODUITS
+         GUIDE VISUEL - IMAGES PLEINE LARGEUR
     ============================================ -->
-    <section class="guide-visuel" id="guide">
+    <section class="guide-fullwidth" id="guide">
         <div class="container">
-            <h2 class="section-titre">Guide visuel d'utilisation</h2>
-            <p class="guide-intro">Suivez ces guides simples pour une utilisation optimale de chaque produit SAHBEL.</p>
+            <h2 class="section-titre">Guide d'utilisation SAHBEL</h2>
+            <p class="guide-subtitle">Suivez ces instructions visuelles pour une utilisation optimale</p>
+        </div>
+        
+        <!-- Images en pleine largeur -->
+        <div class="guide-fullwidth-images">
+            <!-- Image 1 -->
+            <div class="guide-full-item">
+                <div class="image-wrapper">
+                    <img src="images/fly1.webp" alt="Guide huile de croissance SAHBEL" loading="lazy">
+                </div>
+            </div>
             
-            <div class="guide-grid-simple">
-                <!-- Guide 1 - Huile de croissance -->
-                <div class="guide-item">
-                    <div class="guide-image-container">
-                        <img src="images/fly1.webp" alt="Guide huile de croissance SAHBEL" class="guide-img" loading="lazy">
-                    </div>
-                    <div class="guide-caption">Huile de croissance</div>
+            <!-- Image 2 -->
+            <div class="guide-full-item">
+                <div class="image-wrapper">
+                    <img src="images/fly2.webp" alt="Guide sérum SAHBEL" loading="lazy">
                 </div>
-                
-                <!-- Guide 2 - Sérum -->
-                <div class="guide-item">
-                    <div class="guide-image-container">
-                        <img src="images/fly2.webp" alt="Guide sérum SAHBEL" class="guide-img" loading="lazy">
-                    </div>
-                    <div class="guide-caption">Sérum</div>
+            </div>
+            
+            <!-- Image 3 -->
+            <div class="guide-full-item">
+                <div class="image-wrapper">
+                    <img src="images/fly3.webp" alt="Guide lotion capillaire SAHBEL" loading="lazy">
                 </div>
-                
-                <!-- Guide 3 - Lotion capillaire -->
-                <div class="guide-item">
-                    <div class="guide-image-container">
-                        <img src="images/fly3.webp" alt="Guide lotion capillaire SAHBEL" class="guide-img" loading="lazy">
-                    </div>
-                    <div class="guide-caption">Lotion capillaire</div>
+            </div>
+            
+            <!-- Image 4 -->
+            <div class="guide-full-item">
+                <div class="image-wrapper">
+                    <img src="images/fly4.webp" alt="Guide crème coiffante SAHBEL" loading="lazy">
                 </div>
-                
-                <!-- Guide 4 - Crème coiffante -->
-                <div class="guide-item">
-                    <div class="guide-image-container">
-                        <img src="images/fly4.webp" alt="Guide crème coiffante SAHBEL" class="guide-img" loading="lazy">
-                    </div>
-                    <div class="guide-caption">Crème coiffante</div>
+            </div>
+            
+            <!-- Image 5 -->
+            <div class="guide-full-item">
+                <div class="image-wrapper">
+                    <img src="images/fly5.webp" alt="Guide pommade SAHBEL" loading="lazy">
                 </div>
-                
-                <!-- Guide 5 - Pommade -->
-                <div class="guide-item">
-                    <div class="guide-image-container">
-                        <img src="images/fly5.webp" alt="Guide pommade SAHBEL" class="guide-img" loading="lazy">
-                    </div>
-                    <div class="guide-caption">Pommade capillaire</div>
+            </div>
+            
+            <!-- Image 6 -->
+            <div class="guide-full-item">
+                <div class="image-wrapper">
+                    <img src="images/fly6.webp" alt="Guide shampooing conditionneur SAHBEL" loading="lazy">
                 </div>
-                
-                <!-- Guide 6 - Shampooing + Conditionneur -->
-                <div class="guide-item">
-                    <div class="guide-image-container">
-                        <img src="images/fly6.webp" alt="Guide shampooing conditionneur SAHBEL" class="guide-img" loading="lazy">
-                    </div>
-                    <div class="guide-caption">Shampooing & Conditionneur</div>
-                </div>
-                
-                <!-- Guide 7 - Huile de Gombo -->
-                <div class="guide-item">
-                    <div class="guide-image-container">
-                        <img src="images/fly7.webp" alt="Guide huile gombo SAHBEL" class="guide-img" loading="lazy">
-                    </div>
-                    <div class="guide-caption">Huile de Gombo</div>
+            </div>
+            
+            <!-- Image 7 -->
+            <div class="guide-full-item">
+                <div class="image-wrapper">
+                    <img src="images/fly7.webp" alt="Guide huile gombo SAHBEL" loading="lazy">
                 </div>
             </div>
         </div>
