@@ -1550,6 +1550,151 @@
         }
         
         /* ============================================
+   SECTION GUIDE VISUEL
+============================================ */
+.guide-visuel {
+    padding: 80px 0;
+    background-color: var(--couleur-fond);
+    position: relative;
+}
+
+.guide-visuel::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        var(--couleur-bordure), 
+        transparent);
+}
+
+.guide-intro {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    color: var(--couleur-texte-light);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Grille simple */
+.guide-grid-simple {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Item guide */
+.guide-item {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--ombre-legere);
+    transition: var(--transition-douce);
+    border: 1px solid var(--couleur-bordure);
+}
+
+.guide-item:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--ombre-hover);
+}
+
+/* Conteneur image */
+.guide-image-container {
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, 
+        rgba(216, 165, 181, 0.05), 
+        rgba(200, 169, 126, 0.05));
+}
+
+.guide-img {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.6s ease;
+}
+
+.guide-item:hover .guide-img {
+    transform: scale(1.05);
+}
+
+/* Légende */
+.guide-caption {
+    padding: 20px;
+    text-align: center;
+    font-family: var(--typo-sous-titre);
+    font-size: 1.4rem;
+    color: var(--couleur-secondaire);
+    font-weight: 600;
+    border-top: 1px solid var(--couleur-bordure);
+    background: white;
+}
+
+/* ============================================
+   RESPONSIVE SIMPLE
+============================================ */
+@media (max-width: 1200px) {
+    .guide-grid-simple {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .guide-grid-simple {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .guide-image-container {
+        padding: 20px;
+    }
+    
+    .guide-img {
+        max-height: 350px;
+    }
+    
+    .guide-caption {
+        padding: 15px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .guide-grid-simple {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+    
+    .guide-intro {
+        font-size: 1rem;
+        margin-bottom: 40px;
+    }
+    
+    .guide-image-container {
+        padding: 15px;
+    }
+    
+    .guide-img {
+        max-height: 300px;
+    }
+    
+    .guide-caption {
+        font-size: 1.2rem;
+    }
+}
+        
+        /* ============================================
            SECTION RÉSULTATS
         ============================================ */
         .resultats {
@@ -2813,6 +2958,74 @@
         </div>
     </section>
     
+    <!-- ============================================
+         SECTION GUIDE VISUEL DES PRODUITS
+    ============================================ -->
+    <section class="guide-visuel" id="guide">
+        <div class="container">
+            <h2 class="section-titre">Guide visuel d'utilisation</h2>
+            <p class="guide-intro">Suivez ces guides simples pour une utilisation optimale de chaque produit SAHBEL.</p>
+            
+            <div class="guide-grid-simple">
+                <!-- Guide 1 - Huile de croissance -->
+                <div class="guide-item">
+                    <div class="guide-image-container">
+                        <img src="images/fly1.webp" alt="Guide huile de croissance SAHBEL" class="guide-img" loading="lazy">
+                    </div>
+                    <div class="guide-caption">Huile de croissance</div>
+                </div>
+                
+                <!-- Guide 2 - Sérum -->
+                <div class="guide-item">
+                    <div class="guide-image-container">
+                        <img src="images/fly2.webp" alt="Guide sérum SAHBEL" class="guide-img" loading="lazy">
+                    </div>
+                    <div class="guide-caption">Sérum</div>
+                </div>
+                
+                <!-- Guide 3 - Lotion capillaire -->
+                <div class="guide-item">
+                    <div class="guide-image-container">
+                        <img src="images/fly3.webp" alt="Guide lotion capillaire SAHBEL" class="guide-img" loading="lazy">
+                    </div>
+                    <div class="guide-caption">Lotion capillaire</div>
+                </div>
+                
+                <!-- Guide 4 - Crème coiffante -->
+                <div class="guide-item">
+                    <div class="guide-image-container">
+                        <img src="images/fly4.webp" alt="Guide crème coiffante SAHBEL" class="guide-img" loading="lazy">
+                    </div>
+                    <div class="guide-caption">Crème coiffante</div>
+                </div>
+                
+                <!-- Guide 5 - Pommade -->
+                <div class="guide-item">
+                    <div class="guide-image-container">
+                        <img src="images/fly5.webp" alt="Guide pommade SAHBEL" class="guide-img" loading="lazy">
+                    </div>
+                    <div class="guide-caption">Pommade capillaire</div>
+                </div>
+                
+                <!-- Guide 6 - Shampooing + Conditionneur -->
+                <div class="guide-item">
+                    <div class="guide-image-container">
+                        <img src="images/fly6.webp" alt="Guide shampooing conditionneur SAHBEL" class="guide-img" loading="lazy">
+                    </div>
+                    <div class="guide-caption">Shampooing & Conditionneur</div>
+                </div>
+                
+                <!-- Guide 7 - Huile de Gombo -->
+                <div class="guide-item">
+                    <div class="guide-image-container">
+                        <img src="images/fly7.webp" alt="Guide huile gombo SAHBEL" class="guide-img" loading="lazy">
+                    </div>
+                    <div class="guide-caption">Huile de Gombo</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Section Résultats -->
     <section class="resultats" id="resultats">
         <div class="container">
